@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StarshipsVC.swift
 //  InteraZeroProject1
 //
 //  Created by Sara Talat on 28/07/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Starships: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     
 

@@ -32,6 +32,7 @@ class StarshipViewModel {
              switch result {
              case .success(let response):
                  self.starships.append(contentsOf: response.results)
+                 print("Resulttt: \(response.results)")
                  if let nextPageURL = response.next?.replacingOccurrences(of: "https://swapi.dev/api/", with: "") {
                      self.nextPage = nextPageURL
                      self.fetchStarships() // Recursively fetch the next page

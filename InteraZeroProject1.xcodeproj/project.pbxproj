@@ -13,9 +13,9 @@
 		B668949F2C568F0F00C60476 /* StarshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668949E2C568F0F00C60476 /* StarshipViewModel.swift */; };
 		B66894A12C56943B00C60476 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B66894A02C56943B00C60476 /* CustomTableViewCell.xib */; };
 		B66894A32C56954D00C60476 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894A22C56954D00C60476 /* CustomTableViewCell.swift */; };
+		B66894A52C56A48D00C60476 /* StarshipsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894A42C56A48D00C60476 /* StarshipsVC.swift */; };
 		B697AA962C56702300795D48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AA952C56702300795D48 /* AppDelegate.swift */; };
 		B697AA982C56702300795D48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AA972C56702300795D48 /* SceneDelegate.swift */; };
-		B697AA9A2C56702300795D48 /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AA992C56702300795D48 /* Starship.swift */; };
 		B697AA9D2C56702300795D48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B697AA9B2C56702300795D48 /* Main.storyboard */; };
 		B697AAA02C56702300795D48 /* InteraZeroProject1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B697AA9E2C56702300795D48 /* InteraZeroProject1.xcdatamodeld */; };
 		B697AAA22C56702500795D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B697AAA12C56702500795D48 /* Assets.xcassets */; };
@@ -58,10 +58,10 @@
 		B668949E2C568F0F00C60476 /* StarshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewModel.swift; sourceTree = "<group>"; };
 		B66894A02C56943B00C60476 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		B66894A22C56954D00C60476 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		B66894A42C56A48D00C60476 /* StarshipsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsVC.swift; sourceTree = "<group>"; };
 		B697AA922C56702300795D48 /* InteraZeroProject1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteraZeroProject1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B697AA952C56702300795D48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B697AA972C56702300795D48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B697AA992C56702300795D48 /* Starship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
 		B697AA9C2C56702300795D48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B697AA9F2C56702300795D48 /* InteraZeroProject1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InteraZeroProject1.xcdatamodel; sourceTree = "<group>"; };
 		B697AAA12C56702500795D48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 		B668949C2C568EAD00C60476 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B697AA992C56702300795D48 /* Starship.swift */,
 				B66894A22C56954D00C60476 /* CustomTableViewCell.swift */,
+				B66894A42C56A48D00C60476 /* StarshipsVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -527,12 +527,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B697AA9A2C56702300795D48 /* Starship.swift in Sources */,
 				B6E6B0A22C567BE800F73337 /* StarshipModel.swift in Sources */,
 				B697AA962C56702300795D48 /* AppDelegate.swift in Sources */,
 				B6ED9DF62C567FD400CDAB30 /* NetworkService.swift in Sources */,
 				B697AAA02C56702300795D48 /* InteraZeroProject1.xcdatamodeld in Sources */,
 				B66894A32C56954D00C60476 /* CustomTableViewCell.swift in Sources */,
+				B66894A52C56A48D00C60476 /* StarshipsVC.swift in Sources */,
 				B6E139972C5672B500AF1457 /* CharactersModel.swift in Sources */,
 				B697AA982C56702300795D48 /* SceneDelegate.swift in Sources */,
 				B668949F2C568F0F00C60476 /* StarshipViewModel.swift in Sources */,
