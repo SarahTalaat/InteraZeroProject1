@@ -51,9 +51,9 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let charactersDetailsVC = storyboard.instantiateViewController(withIdentifier: "StarshipDetailsVC") as? CharacterDetailsVC {
+        if let starshipDetailsVC = storyboard.instantiateViewController(withIdentifier: "StarshipDetailsVC") as? StarshipDetailsVC {
             starshipViewModel.passSingleStarshipUrl(url: starshipViewModel.starships[indexPath.row].url)
-            self.navigationController?.pushViewController(charactersDetailsVC, animated: true)
+            self.navigationController?.pushViewController(starshipDetailsVC, animated: true)
         }
     }
     

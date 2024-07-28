@@ -179,6 +179,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Starship Details" id="aN8-Sz-8TV"/>
+                    <connections>
+                        <outlet property="costLabel" destination="bzF-ZE-4jQ" id="SZ9-J6-OPV"/>
+                        <outlet property="crewLabel" destination="szI-62-ilg" id="rc0-L7-wRj"/>
+                        <outlet property="lengthLabel" destination="Psq-hP-hiP" id="MFo-rm-Jl8"/>
+                        <outlet property="manufacturerLabel" destination="HKP-9x-zj8" id="zdU-W3-ZAv"/>
+                        <outlet property="modelLabel" destination="m2I-yZ-Vho" id="Jpe-7z-Oox"/>
+                        <outlet property="passengersLabel" destination="rF5-Np-BIa" id="mhC-fX-qFf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtS-GC-dUm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
