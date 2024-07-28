@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     
 
@@ -23,6 +23,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
          
          tableViewStarships.dataSource = self
          tableViewStarships.delegate = self
+         searchBarStarships.delegate = self
         
         
         // Bind the ViewModel to the ViewController
@@ -47,6 +48,10 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         let starship = starshipViewModel.starships[indexPath.row]
         cell.name.text = starshipViewModel.starships[indexPath.row].name
         return cell
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        starshipViewModel.searchStarships(with: searchText)
     }
 }
 

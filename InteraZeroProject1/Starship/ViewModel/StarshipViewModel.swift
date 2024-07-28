@@ -15,7 +15,7 @@ class StarshipViewModel {
     
     var nextPage: String? = nil
 
-    
+    var allStarships: [StarshipModel] = []
     var starships: [StarshipModel] = [] {
         didSet{
             bindStarshipModelToVC()
@@ -31,7 +31,9 @@ class StarshipViewModel {
          NetworkService.instance.requestFunction(urlString: url, method: .get) { (result: Result<StarshipsResponse, Error>) in
              switch result {
              case .success(let response):
-                 self.starships.append(contentsOf: response.results)
+                 
+                self.allStarships.append(contentsOf: response.results)
+                self.starships = self.allStarships
                  print("Resulttt: \(response.results)")
                  if let nextPageURL = response.next?.replacingOccurrences(of: "https://swapi.dev/api/", with: "") {
                      self.nextPage = nextPageURL
@@ -44,5 +46,13 @@ class StarshipViewModel {
              }
          }
      }
+    
+    func searchStarships(with name: String) {
+        if name.isEmpty {
+            starships = allStarships
+        } else {
+            starships = allStarships.filter { $0.name.lowercased().contains(name.lowercased()) }
+        }
+    }
     
 }
