@@ -1,24 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dhp-gF-x8h">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Starships-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Starship" id="BYZ-38-t0r" customClass="Starships" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KvC-km-MBe">
+                                <rect key="frame" x="0.0" y="155" width="414" height="638"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-QP-nQE">
+                                <rect key="frame" x="0.0" y="78" width="414" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bY6-QP-nQE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="1ud-rm-BQK"/>
+                            <constraint firstItem="KvC-km-MBe" firstAttribute="top" secondItem="bY6-QP-nQE" secondAttribute="bottom" constant="33" id="39A-mR-ybk"/>
+                            <constraint firstItem="bY6-QP-nQE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="Bte-MO-XdH"/>
+                            <constraint firstItem="KvC-km-MBe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HMD-Jq-NjU"/>
+                            <constraint firstItem="bY6-QP-nQE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LKX-Vm-zfc"/>
+                            <constraint firstItem="KvC-km-MBe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Mv4-DJ-GIw"/>
+                            <constraint firstItem="bY6-QP-nQE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0491071" id="ONr-Ux-VIT"/>
+                            <constraint firstItem="KvC-km-MBe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.712054" id="kJv-U1-s57"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Starships" selectedImage="star.fill" catalog="system" id="Qtj-C5-P8e"/>
+                    <connections>
+                        <outlet property="searchBarStarships" destination="bY6-QP-nQE" id="VNy-oA-zJE"/>
+                        <outlet property="tableViewStarships" destination="KvC-km-MBe" id="a7J-hd-JXP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1003" y="465"/>
+        </scene>
+        <!--Characters-->
+        <scene sceneID="oFh-FC-1Pa">
+            <objects>
+                <viewController id="S6a-ld-8Ng" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tE4-2P-2vS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hVj-vx-Fb6">
+                                <rect key="frame" x="0.0" y="155" width="414" height="638"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="i02-pl-8RP">
+                                <rect key="frame" x="0.0" y="78" width="414" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="myY-1B-ZlV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i02-pl-8RP" firstAttribute="height" secondItem="tE4-2P-2vS" secondAttribute="height" multiplier="0.0491071" id="2Gh-lb-yGs"/>
+                            <constraint firstItem="hVj-vx-Fb6" firstAttribute="height" secondItem="tE4-2P-2vS" secondAttribute="height" multiplier="0.712054" id="AOu-Jb-SHb"/>
+                            <constraint firstItem="i02-pl-8RP" firstAttribute="top" secondItem="myY-1B-ZlV" secondAttribute="top" constant="34" id="Fzw-Pp-Zc9"/>
+                            <constraint firstItem="hVj-vx-Fb6" firstAttribute="centerX" secondItem="myY-1B-ZlV" secondAttribute="centerX" id="G9b-Qo-CFa"/>
+                            <constraint firstItem="hVj-vx-Fb6" firstAttribute="top" secondItem="i02-pl-8RP" secondAttribute="bottom" constant="33" id="HTV-ki-9wS"/>
+                            <constraint firstItem="hVj-vx-Fb6" firstAttribute="width" secondItem="tE4-2P-2vS" secondAttribute="width" id="JqJ-Ti-167"/>
+                            <constraint firstItem="i02-pl-8RP" firstAttribute="width" secondItem="tE4-2P-2vS" secondAttribute="width" id="dqT-ER-J93"/>
+                            <constraint firstItem="i02-pl-8RP" firstAttribute="centerX" secondItem="myY-1B-ZlV" secondAttribute="centerX" id="si7-In-kOD"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Characters" selectedImage="person.fill" catalog="system" id="pK9-7o-oVI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2aB-il-cQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002.8985507246377" y="-221.65178571428569"/>
+        </scene>
+        <!--Favourites-->
+        <scene sceneID="uuT-oe-hgf">
+            <objects>
+                <viewController id="vNI-m4-7sZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cat-GX-VrP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3vt-AO-znV">
+                                <rect key="frame" x="0.0" y="155" width="414" height="638"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ljK-rz-mkp">
+                                <rect key="frame" x="0.0" y="78" width="414" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IbX-m4-RMa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3vt-AO-znV" firstAttribute="width" secondItem="ljK-rz-mkp" secondAttribute="width" id="Lx1-8R-FWk"/>
+                            <constraint firstItem="3vt-AO-znV" firstAttribute="top" secondItem="ljK-rz-mkp" secondAttribute="bottom" constant="33" id="Q4O-na-9yQ"/>
+                            <constraint firstItem="3vt-AO-znV" firstAttribute="leading" secondItem="ljK-rz-mkp" secondAttribute="trailing" constant="-414" id="WSt-qe-qmf"/>
+                            <constraint firstItem="ljK-rz-mkp" firstAttribute="width" secondItem="Cat-GX-VrP" secondAttribute="width" id="j7s-RK-DNf"/>
+                            <constraint firstItem="ljK-rz-mkp" firstAttribute="top" secondItem="IbX-m4-RMa" secondAttribute="top" constant="34" id="jza-xe-yV5"/>
+                            <constraint firstItem="ljK-rz-mkp" firstAttribute="height" secondItem="Cat-GX-VrP" secondAttribute="height" multiplier="0.0491071" id="kM7-SJ-SBQ"/>
+                            <constraint firstItem="3vt-AO-znV" firstAttribute="height" secondItem="ljK-rz-mkp" secondAttribute="height" multiplier="14.5" id="mHJ-lb-wgR"/>
+                            <constraint firstItem="ljK-rz-mkp" firstAttribute="centerX" secondItem="IbX-m4-RMa" secondAttribute="centerX" id="vcp-5d-Jgc"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favourites" selectedImage="heart.fill" catalog="system" id="moK-VI-CSc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-Q4-xzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1003" y="-1010"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9MO-D5-DBv">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Dhp-gF-x8h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ppm-Qq-igR">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ize-wS-Qzn"/>
+                        <segue destination="S6a-ld-8Ng" kind="relationship" relationship="viewControllers" id="LBX-ui-aTP"/>
+                        <segue destination="vNI-m4-7sZ" kind="relationship" relationship="viewControllers" id="7c6-en-psA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJM-tD-V6J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82.608695652173921" y="125.89285714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
