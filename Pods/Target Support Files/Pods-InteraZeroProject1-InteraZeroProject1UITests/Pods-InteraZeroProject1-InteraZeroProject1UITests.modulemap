@@ -1,0 +1,6 @@
+framework module Pods_InteraZeroProject1_InteraZeroProject1UITests {
+  umbrella header "Pods-InteraZeroProject1-InteraZeroProject1UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

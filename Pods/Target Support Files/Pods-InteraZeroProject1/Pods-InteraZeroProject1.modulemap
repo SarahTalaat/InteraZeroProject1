@@ -1,0 +1,6 @@
+framework module Pods_InteraZeroProject1 {
+  umbrella header "Pods-InteraZeroProject1-umbrella.h"
+
+  export *
+  module * { export * }
+}
