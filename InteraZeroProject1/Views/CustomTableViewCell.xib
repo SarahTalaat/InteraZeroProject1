@@ -21,18 +21,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fX-m3-B6P">
-                        <rect key="frame" x="306" y="23" width="88" height="31"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Details">
-                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                        </buttonConfiguration>
-                        <connections>
-                            <action selector="detailsButton:" destination="iHo-hd-AVF" eventType="touchUpInside" id="0j7-dO-pWG"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7f-1t-FOr">
-                        <rect key="frame" x="326" y="62" width="46" height="31"/>
+                        <rect key="frame" x="327" y="39" width="46" height="31"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                         <connections>
@@ -41,17 +31,13 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7fX-m3-B6P" firstAttribute="top" secondItem="H3I-hi-ynu" secondAttribute="top" constant="23" id="3V4-Te-NE6"/>
                     <constraint firstItem="P7f-1t-FOr" firstAttribute="width" secondItem="H3I-hi-ynu" secondAttribute="width" multiplier="0.111111" id="6Fn-zf-jlZ"/>
                     <constraint firstItem="37E-6D-g8n" firstAttribute="top" secondItem="H3I-hi-ynu" secondAttribute="top" constant="33" id="AmX-bq-uLe"/>
                     <constraint firstItem="37E-6D-g8n" firstAttribute="width" secondItem="H3I-hi-ynu" secondAttribute="width" multiplier="0.673913" constant="-20" id="EY9-FK-u0d"/>
+                    <constraint firstItem="P7f-1t-FOr" firstAttribute="top" secondItem="H3I-hi-ynu" secondAttribute="top" constant="39" id="N5E-Wg-V6N"/>
                     <constraint firstItem="P7f-1t-FOr" firstAttribute="height" secondItem="H3I-hi-ynu" secondAttribute="height" multiplier="0.287037" id="Ubi-Od-ash"/>
-                    <constraint firstItem="7fX-m3-B6P" firstAttribute="leading" secondItem="37E-6D-g8n" secondAttribute="trailing" constant="19" id="Yef-BM-HAj"/>
-                    <constraint firstItem="7fX-m3-B6P" firstAttribute="width" secondItem="H3I-hi-ynu" secondAttribute="width" multiplier="0.166667" constant="19" id="Z2h-aQ-MRt"/>
-                    <constraint firstItem="7fX-m3-B6P" firstAttribute="height" secondItem="H3I-hi-ynu" secondAttribute="height" multiplier="0.287037" id="dfw-an-WAE"/>
-                    <constraint firstItem="P7f-1t-FOr" firstAttribute="leading" secondItem="37E-6D-g8n" secondAttribute="trailing" constant="39" id="doI-pa-zNB"/>
+                    <constraint firstItem="P7f-1t-FOr" firstAttribute="leading" secondItem="37E-6D-g8n" secondAttribute="trailing" constant="40" id="doI-pa-zNB"/>
                     <constraint firstAttribute="trailing" secondItem="37E-6D-g8n" secondAttribute="trailing" constant="127" id="gLc-Nl-MqP"/>
-                    <constraint firstItem="P7f-1t-FOr" firstAttribute="top" secondItem="7fX-m3-B6P" secondAttribute="bottom" constant="8" symbolic="YES" id="iib-hD-2Ke"/>
                     <constraint firstAttribute="bottom" secondItem="37E-6D-g8n" secondAttribute="bottom" constant="32" id="pFQ-qT-82d"/>
                     <constraint firstItem="37E-6D-g8n" firstAttribute="height" secondItem="H3I-hi-ynu" secondAttribute="height" multiplier="0.398148" id="qkg-V5-564"/>
                     <constraint firstItem="37E-6D-g8n" firstAttribute="leading" secondItem="H3I-hi-ynu" secondAttribute="leading" constant="28" id="yFu-Sj-1O3"/>
