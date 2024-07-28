@@ -51,7 +51,7 @@
         <!--Characters-->
         <scene sceneID="oFh-FC-1Pa">
             <objects>
-                <viewController id="S6a-ld-8Ng" sceneMemberID="viewController">
+                <viewController id="S6a-ld-8Ng" customClass="CharactersVC" customModule="InteraZeroProject1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tE4-2P-2vS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,6 +79,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Characters" id="vvC-hj-Xbg"/>
+                    <connections>
+                        <outlet property="searchBarCharacters" destination="i02-pl-8RP" id="MrD-L4-cbT"/>
+                        <outlet property="tableViewCharacters" destination="hVj-vx-Fb6" id="55c-Uu-zEJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aB-il-cQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

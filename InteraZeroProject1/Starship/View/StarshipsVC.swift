@@ -45,7 +45,6 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewStarships.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-        let starship = starshipViewModel.starships[indexPath.row]
         cell.name.text = starshipViewModel.starships[indexPath.row].name
         return cell
     }
