@@ -16,7 +16,7 @@ class StarshipDetailsVC: UIViewController {
     @IBOutlet weak var crewLabel: UILabel!
     
     
-    let starshipDetailsViewModel = StarshipDetailsViewModel()
+    let starshipDetailsViewModel = DependencyProvider.starshipDetailsViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()

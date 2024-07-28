@@ -13,7 +13,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
 
     @IBOutlet weak var searchBarStarships: UISearchBar!
     @IBOutlet weak var tableViewStarships: UITableView!
-    let starshipViewModel = StarshipViewModel()
+    let starshipViewModel = DependencyProvider.starshipViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +53,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let starshipDetailsVC = storyboard.instantiateViewController(withIdentifier: "StarshipDetailsVC") as? StarshipDetailsVC {
             starshipViewModel.passSingleStarshipUrl(url: starshipViewModel.starships[indexPath.row].url)
+            starshipDetailsVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(starshipDetailsVC, animated: true)
         }
     }

@@ -18,7 +18,7 @@ class CharacterDetailsVC: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var eyeColorLabel: UILabel!
     
-    let charactersDetailsViewModel = CharactersDetailsViewModel()
+    let charactersDetailsViewModel = DependencyProvider.charactersDetailsViewModel
   
     
     override func viewDidLoad() {

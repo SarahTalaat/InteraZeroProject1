@@ -13,7 +13,8 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
 
     @IBOutlet weak var searchBarCharacters: UISearchBar!
     @IBOutlet weak var tableViewCharacters: UITableView!
-    let charactersViewModel = CharactersViewModel()
+    
+    let charactersViewModel = DependencyProvider.charactersViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let charactersDetailsVC = storyboard.instantiateViewController(withIdentifier: "CharactersDetailsVC") as? CharacterDetailsVC {
             charactersViewModel.passSingleCharacterUrl(url: charactersViewModel.characters[indexPath.row].url)
+            charactersDetailsVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(charactersDetailsVC, animated: true)
         }
     }
