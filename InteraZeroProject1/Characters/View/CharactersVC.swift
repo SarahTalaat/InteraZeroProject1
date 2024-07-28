@@ -50,6 +50,14 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let charactersDetailsVC = storyboard.instantiateViewController(withIdentifier: "CharactersDetailsVC") as? CharacterDetailsVC {
+            charactersViewModel.passSingleCharacterUrl(url: charactersViewModel.characters[indexPath.row].url)
+            self.navigationController?.pushViewController(charactersDetailsVC, animated: true)
+        }
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         charactersViewModel.searchCharacters(with: searchText)
     }

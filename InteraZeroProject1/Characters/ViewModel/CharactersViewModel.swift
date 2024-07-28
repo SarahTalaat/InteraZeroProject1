@@ -15,6 +15,7 @@ class CharactersViewModel {
     
     var nextPage: String? = nil
 
+    var singleCharacter: CharactersModel?
     var allCharacters: [CharactersModel] = []
     var characters: [CharactersModel] = [] {
         didSet{
@@ -53,6 +54,10 @@ class CharactersViewModel {
         } else {
             characters = allCharacters.filter { $0.name.lowercased().contains(name.lowercased()) }
         }
+    }
+    
+    func passSingleCharacterUrl(url:String){
+        SharedDataModel.instance.urlCharacter = url
     }
     
 }

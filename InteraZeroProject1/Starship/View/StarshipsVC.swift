@@ -49,8 +49,19 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let charactersDetailsVC = storyboard.instantiateViewController(withIdentifier: "StarshipDetailsVC") as? CharacterDetailsVC {
+            starshipViewModel.passSingleStarshipUrl(url: starshipViewModel.starships[indexPath.row].url)
+            self.navigationController?.pushViewController(charactersDetailsVC, animated: true)
+        }
+    }
+    
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         starshipViewModel.searchStarships(with: searchText)
     }
+    
+    
 }
 

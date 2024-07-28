@@ -54,5 +54,9 @@ class StarshipViewModel {
             starships = allStarships.filter { $0.name.lowercased().contains(name.lowercased()) }
         }
     }
+ 
     
+    func passSingleStarshipUrl(url:String){
+        SharedDataModel.instance.urlStarship = url
+    }
 }

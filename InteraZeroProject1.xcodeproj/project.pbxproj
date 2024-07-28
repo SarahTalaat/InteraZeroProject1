@@ -16,6 +16,11 @@
 		B66894A52C56A48D00C60476 /* StarshipsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894A42C56A48D00C60476 /* StarshipsVC.swift */; };
 		B66894A72C56AF0700C60476 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894A62C56AF0700C60476 /* CharactersViewModel.swift */; };
 		B66894A92C56AF1F00C60476 /* CharactersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894A82C56AF1F00C60476 /* CharactersVC.swift */; };
+		B66894B32C56C1C900C60476 /* CharacterDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894B22C56C1C900C60476 /* CharacterDetailsVC.swift */; };
+		B66894B62C56C5A400C60476 /* SharedDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894B52C56C5A400C60476 /* SharedDataModel.swift */; };
+		B66894B92C56C7A100C60476 /* CharactersDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894B82C56C7A100C60476 /* CharactersDetailsViewModel.swift */; };
+		B66894BD2C56CF0A00C60476 /* StarshipDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894BC2C56CF0A00C60476 /* StarshipDetailsVC.swift */; };
+		B66894C02C56CF2E00C60476 /* StarshipDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894BF2C56CF2E00C60476 /* StarshipDetailsViewModel.swift */; };
 		B697AA962C56702300795D48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AA952C56702300795D48 /* AppDelegate.swift */; };
 		B697AA982C56702300795D48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AA972C56702300795D48 /* SceneDelegate.swift */; };
 		B697AA9D2C56702300795D48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B697AA9B2C56702300795D48 /* Main.storyboard */; };
@@ -63,6 +68,11 @@
 		B66894A42C56A48D00C60476 /* StarshipsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsVC.swift; sourceTree = "<group>"; };
 		B66894A62C56AF0700C60476 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		B66894A82C56AF1F00C60476 /* CharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVC.swift; sourceTree = "<group>"; };
+		B66894B22C56C1C900C60476 /* CharacterDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailsVC.swift; sourceTree = "<group>"; };
+		B66894B52C56C5A400C60476 /* SharedDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataModel.swift; sourceTree = "<group>"; };
+		B66894B82C56C7A100C60476 /* CharactersDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDetailsViewModel.swift; sourceTree = "<group>"; };
+		B66894BC2C56CF0A00C60476 /* StarshipDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailsVC.swift; sourceTree = "<group>"; };
+		B66894BF2C56CF2E00C60476 /* StarshipDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailsViewModel.swift; sourceTree = "<group>"; };
 		B697AA922C56702300795D48 /* InteraZeroProject1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteraZeroProject1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B697AA952C56702300795D48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B697AA972C56702300795D48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +177,64 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B66894AA2C56B6D600C60476 /* StarshipDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B66894BE2C56CF1D00C60476 /* ViewModel */,
+				B66894AC2C56BDA200C60476 /* View */,
+			);
+			path = StarshipDetails;
+			sourceTree = "<group>";
+		};
+		B66894AB2C56B6E400C60476 /* CharactersDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B66894B72C56C77E00C60476 /* ViewModel */,
+				B66894AF2C56C16D00C60476 /* View */,
+			);
+			path = CharactersDetails;
+			sourceTree = "<group>";
+		};
+		B66894AC2C56BDA200C60476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B66894BC2C56CF0A00C60476 /* StarshipDetailsVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B66894AF2C56C16D00C60476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B66894B22C56C1C900C60476 /* CharacterDetailsVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B66894B42C56C55D00C60476 /* SharedData */ = {
+			isa = PBXGroup;
+			children = (
+				B66894B52C56C5A400C60476 /* SharedDataModel.swift */,
+			);
+			path = SharedData;
+			sourceTree = "<group>";
+		};
+		B66894B72C56C77E00C60476 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B66894B82C56C7A100C60476 /* CharactersDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B66894BE2C56CF1D00C60476 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B66894BF2C56CF2E00C60476 /* StarshipDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B697AA892C56702200795D48 = {
 			isa = PBXGroup;
 			children = (
@@ -192,9 +260,12 @@
 		B697AA942C56702300795D48 /* InteraZeroProject1 */ = {
 			isa = PBXGroup;
 			children = (
+				B66894B42C56C55D00C60476 /* SharedData */,
+				B66894AB2C56B6E400C60476 /* CharactersDetails */,
+				B66894AA2C56B6D600C60476 /* StarshipDetails */,
 				B6ED9DF72C56816800CDAB30 /* Utilities */,
-				B6ED9DF22C567F9E00CDAB30 /* Starship */,
 				B6E6B0A32C567C2D00F73337 /* Services */,
+				B6ED9DF22C567F9E00CDAB30 /* Starship */,
 				B697AACA2C56705500795D48 /* Characters */,
 				B697AAC92C56704B00795D48 /* Views */,
 				B697AAC82C56704000795D48 /* Model */,
@@ -543,8 +614,13 @@
 				B66894A52C56A48D00C60476 /* StarshipsVC.swift in Sources */,
 				B6E139972C5672B500AF1457 /* CharactersModel.swift in Sources */,
 				B697AA982C56702300795D48 /* SceneDelegate.swift in Sources */,
+				B66894B62C56C5A400C60476 /* SharedDataModel.swift in Sources */,
 				B668949F2C568F0F00C60476 /* StarshipViewModel.swift in Sources */,
 				B6ED9DF92C56817900CDAB30 /* Constants.swift in Sources */,
+				B66894C02C56CF2E00C60476 /* StarshipDetailsViewModel.swift in Sources */,
+				B66894B92C56C7A100C60476 /* CharactersDetailsViewModel.swift in Sources */,
+				B66894B32C56C1C900C60476 /* CharacterDetailsVC.swift in Sources */,
+				B66894BD2C56CF0A00C60476 /* StarshipDetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
