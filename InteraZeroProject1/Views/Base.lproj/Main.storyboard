@@ -426,7 +426,7 @@
             </objects>
             <point key="canvasLocation" x="3711.594202898551" y="-218.30357142857142"/>
         </scene>
-        <!--Favourites-->
+        <!--Favourite Characters-->
         <scene sceneID="uuT-oe-hgf">
             <objects>
                 <viewController id="vNI-m4-7sZ" sceneMemberID="viewController">
@@ -456,7 +456,7 @@
                             <constraint firstItem="ljK-rz-mkp" firstAttribute="centerX" secondItem="IbX-m4-RMa" secondAttribute="centerX" id="vcp-5d-Jgc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favourites" id="xGE-Rc-wZd"/>
+                    <navigationItem key="navigationItem" title="Favourite Characters" id="xGE-Rc-wZd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-Q4-xzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -473,8 +473,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="I1r-uO-Rpt" kind="relationship" relationship="viewControllers" id="LBX-ui-aTP"/>
-                        <segue destination="Nu3-Di-B2p" kind="relationship" relationship="viewControllers" id="7c6-en-psA"/>
                         <segue destination="0VI-ik-q4l" kind="relationship" relationship="viewControllers" id="9QE-cT-cBX"/>
+                        <segue destination="Nu3-Di-B2p" kind="relationship" relationship="viewControllers" id="mol-yW-i19"/>
+                        <segue destination="fIs-nZ-3Ej" kind="relationship" relationship="viewControllers" id="m1F-Qt-Ybc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJM-tD-V6J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -485,7 +486,7 @@
         <scene sceneID="q5l-y2-Tbq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0VI-ik-q4l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Starships" selectedImage="star.fill" catalog="system" id="Qtj-C5-P8e"/>
+                    <tabBarItem key="tabBarItem" title="Starships" image="star.fill" catalog="system" selectedImage="star.fill" id="Qtj-C5-P8e"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sh6-0I-ABF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -504,7 +505,7 @@
         <scene sceneID="UMT-xh-BXY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I1r-uO-Rpt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Characters" selectedImage="person.fill" catalog="system" id="pK9-7o-oVI"/>
+                    <tabBarItem key="tabBarItem" title="Characters" image="person.fill" catalog="system" selectedImage="person.fill" id="pK9-7o-oVI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KOB-08-H2c">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -519,11 +520,11 @@
             </objects>
             <point key="canvasLocation" x="1002.8985507246377" y="-221.65178571428569"/>
         </scene>
-        <!--Favourites-->
+        <!--FavCharacters-->
         <scene sceneID="RXa-s4-fix">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nu3-Di-B2p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favourites" selectedImage="heart.fill" catalog="system" id="moK-VI-CSc"/>
+                    <tabBarItem key="tabBarItem" title="FavCharacters" image="heart.fill" catalog="system" selectedImage="heart.fill" id="moK-VI-CSc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XXl-fl-YFx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -573,6 +574,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Pn-1S-PSK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2801" y="465"/>
+        </scene>
+        <!--Favourite Starship-->
+        <scene sceneID="EBM-hn-rMA">
+            <objects>
+                <viewController id="haS-8s-jZs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fve-aI-Hki">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jMK-34-Fag">
+                                <rect key="frame" x="0.0" y="141" width="414" height="638"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DbA-eR-L0K">
+                                <rect key="frame" x="0.0" y="98" width="414" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sAr-lD-GVn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DbA-eR-L0K" firstAttribute="centerX" secondItem="sAr-lD-GVn" secondAttribute="centerX" id="2TZ-bn-ypu"/>
+                            <constraint firstItem="jMK-34-Fag" firstAttribute="height" secondItem="DbA-eR-L0K" secondAttribute="height" multiplier="14.5" id="9K2-Pu-L4V"/>
+                            <constraint firstItem="DbA-eR-L0K" firstAttribute="width" secondItem="Fve-aI-Hki" secondAttribute="width" id="Amz-IV-wgr"/>
+                            <constraint firstItem="jMK-34-Fag" firstAttribute="leading" secondItem="DbA-eR-L0K" secondAttribute="trailing" constant="-414" id="TUl-VD-8YV"/>
+                            <constraint firstItem="jMK-34-Fag" firstAttribute="width" secondItem="DbA-eR-L0K" secondAttribute="width" id="TpH-f6-pfu"/>
+                            <constraint firstItem="DbA-eR-L0K" firstAttribute="top" secondItem="sAr-lD-GVn" secondAttribute="top" constant="10" id="mTH-QO-HbT"/>
+                            <constraint firstItem="DbA-eR-L0K" firstAttribute="height" secondItem="Fve-aI-Hki" secondAttribute="height" multiplier="0.0491071" id="uEW-0b-7ME"/>
+                            <constraint firstItem="jMK-34-Fag" firstAttribute="top" secondItem="DbA-eR-L0K" secondAttribute="bottom" constant="-1" id="z6c-vs-fc6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favourite Starship" id="pxI-i6-D4A"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4pb-QS-jJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1913" y="-1806"/>
+        </scene>
+        <!--FavStarships-->
+        <scene sceneID="hRR-47-jeu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fIs-nZ-3Ej" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="FavStarships" image="heart.fill" catalog="system" selectedImage="heart.fill" id="1LP-Y6-Zcs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hYJ-Nn-ct2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="haS-8s-jZs" kind="relationship" relationship="rootViewController" id="mO8-fJ-FBP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="255-ba-oow" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045" y="-1806"/>
         </scene>
     </scenes>
     <resources>
