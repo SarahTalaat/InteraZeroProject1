@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterDetailsEntity" representedClassName="CharacterDetailsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="birthYear" optional="YES" attributeType="String"/>
+        <attribute name="eyeColor" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="hairColor" optional="YES" attributeType="String"/>
+        <attribute name="height" optional="YES" attributeType="String"/>
+        <attribute name="mass" optional="YES" attributeType="String"/>
+        <attribute name="skinColor" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="StarshipDetailsEntity" representedClassName="StarshipDetailsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="cost" optional="YES" attributeType="String"/>
+        <attribute name="crew" optional="YES" attributeType="String"/>
+        <attribute name="length" optional="YES" attributeType="String"/>
+        <attribute name="manufacturer" optional="YES" attributeType="String"/>
+        <attribute name="model" optional="YES" attributeType="String"/>
+        <attribute name="passengers" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CharacterDetailsEntity" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="StarshipDetailsEntity" positionX="-54" positionY="45" width="128" height="119"/>
+    </elements>
 </model>
