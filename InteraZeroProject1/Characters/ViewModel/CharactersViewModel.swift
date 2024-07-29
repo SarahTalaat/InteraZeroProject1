@@ -11,12 +11,11 @@ import Reachability
 class CharactersViewModel {
     
     init(){
-        setupReachability()
+     //   setupReachability()
         fetchCharacters()
     }
     
     var nextPage: String? = nil
-    var singleCharacter: CharactersModel?
     var allCharacters: [CharactersModel] = []
     var characters: [CharactersModel] = [] {
         didSet{
@@ -46,6 +45,10 @@ class CharactersViewModel {
         }
     }
     
+    deinit {
+        reachability?.stopNotifier()
+    }
+    
     func fetchCharacters() {
         guard !isFetching else { return }
         isFetching = true
@@ -60,8 +63,10 @@ class CharactersViewModel {
                 self.allCharacters.append(contentsOf: response.results)
                 self.characters = self.allCharacters
                 if let nextPageURL = response.next?.replacingOccurrences(of: "https://swapi.dev/api/", with: "") {
-                    self.nextPage = nextPageURL
-                    self.fetchCharactersIfNeeded()
+                        self.nextPage = nextPageURL
+                    print("Next Page CH : \(self.nextPage)")
+                    print("Next Page URL CH : \(nextPageURL)")
+                        self.fetchCharactersIfNeeded()
                 } else {
                     self.nextPage = nil
                 }

@@ -11,7 +11,6 @@ import Reachability
 class CharactersDetailsViewModel{
     
     init(){
-        setupReachability()
         fetchCharactersDetails()
     }
     

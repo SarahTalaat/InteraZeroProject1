@@ -18,6 +18,21 @@ class StarshipDetailsVC: UIViewController {
     
     let starshipDetailsViewModel = DependencyProvider.starshipDetailsViewModel
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        starshipDetailsViewModel.networkStatusChanged = { isReachable in
+            DispatchQueue.main.async {
+                if !isReachable {
+                    self.showAlerts(title: "No Internet Connection", message: "Please check your WiFi connection.")
+                } else {
+                    self.starshipDetailsViewModel.fetchStarshipsDetailsIfNeeded()
+                }
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

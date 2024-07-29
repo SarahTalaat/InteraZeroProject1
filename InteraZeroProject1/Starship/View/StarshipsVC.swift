@@ -15,6 +15,29 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var tableViewStarships: UITableView!
     let starshipViewModel = DependencyProvider.starshipViewModel
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        starshipViewModel.networkStatusChanged = { isReachable in
+            DispatchQueue.main.async {
+                if !isReachable {
+                    self.showAlerts(title: "No Internet Connection", message: "Please check your WiFi connection.")
+                }
+                else {
+                   
+                    self.starshipViewModel.bindStarshipModelToVC = {
+                        DispatchQueue.main.async {
+                            self.tableViewStarships.reloadData()
+                        }
+                    }
+                    self.starshipViewModel.fetchStarshipsIfNeeded()
+                    
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -34,7 +57,8 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         }
         
         // Fetch initial starships data
-        starshipViewModel.fetchStarships()
+        starshipViewModel.setupReachability()
+        starshipViewModel.fetchStarshipsIfNeeded()
         
     }
 
