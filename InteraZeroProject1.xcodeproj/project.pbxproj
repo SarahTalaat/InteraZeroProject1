@@ -22,6 +22,7 @@
 		B66894BD2C56CF0A00C60476 /* StarshipDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894BC2C56CF0A00C60476 /* StarshipDetailsVC.swift */; };
 		B66894C02C56CF2E00C60476 /* StarshipDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894BF2C56CF2E00C60476 /* StarshipDetailsViewModel.swift */; };
 		B66894C22C56FED600C60476 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894C12C56FED600C60476 /* DependencyProvider.swift */; };
+		B66894C42C57089D00C60476 /* SharedMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894C32C57089D00C60476 /* SharedMethods.swift */; };
 		B697AA962C56702300795D48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AA952C56702300795D48 /* AppDelegate.swift */; };
 		B697AA982C56702300795D48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AA972C56702300795D48 /* SceneDelegate.swift */; };
 		B697AA9D2C56702300795D48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B697AA9B2C56702300795D48 /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		B66894BC2C56CF0A00C60476 /* StarshipDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailsVC.swift; sourceTree = "<group>"; };
 		B66894BF2C56CF2E00C60476 /* StarshipDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailsViewModel.swift; sourceTree = "<group>"; };
 		B66894C12C56FED600C60476 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
+		B66894C32C57089D00C60476 /* SharedMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedMethods.swift; sourceTree = "<group>"; };
 		B697AA922C56702300795D48 /* InteraZeroProject1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteraZeroProject1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B697AA952C56702300795D48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B697AA972C56702300795D48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				B66894B52C56C5A400C60476 /* SharedDataModel.swift */,
+				B66894C32C57089D00C60476 /* SharedMethods.swift */,
 			);
 			path = SharedData;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				B66894A72C56AF0700C60476 /* CharactersViewModel.swift in Sources */,
 				B6E6B0A22C567BE800F73337 /* StarshipModel.swift in Sources */,
 				B697AA962C56702300795D48 /* AppDelegate.swift in Sources */,
+				B66894C42C57089D00C60476 /* SharedMethods.swift in Sources */,
 				B6ED9DF62C567FD400CDAB30 /* NetworkService.swift in Sources */,
 				B697AAA02C56702300795D48 /* InteraZeroProject1.xcdatamodeld in Sources */,
 				B66894A32C56954D00C60476 /* CustomTableViewCell.swift in Sources */,

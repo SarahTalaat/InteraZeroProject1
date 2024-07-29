@@ -20,11 +20,24 @@ class CharacterDetailsVC: UIViewController {
     
     let charactersDetailsViewModel = DependencyProvider.charactersDetailsViewModel
   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        charactersDetailsViewModel.networkStatusChanged = { isReachable in
+            DispatchQueue.main.async {
+                if !isReachable {
+                    self.showAlerts(title: "No Internet Connection", message: "Please check your WiFi connection.")
+                } else {
+                    self.charactersDetailsViewModel.fetchCharactersDetailsIfNeeded()
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
         
         // Bind the ViewModel to the ViewController
         charactersDetailsViewModel.bindCharactersDetailsModelToVC = {
@@ -40,7 +53,8 @@ class CharacterDetailsVC: UIViewController {
         }
         
         // Fetch initial starships data
-        charactersDetailsViewModel.fetchCharactersDetails()
+        charactersDetailsViewModel.setupReachability()
+        charactersDetailsViewModel.fetchCharactersDetailsIfNeeded()
         
         
     

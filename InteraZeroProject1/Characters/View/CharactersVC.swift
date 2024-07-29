@@ -16,6 +16,30 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     
     let charactersViewModel = DependencyProvider.charactersViewModel
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        charactersViewModel.networkStatusChanged = { isReachable in
+            DispatchQueue.main.async {
+                if !isReachable {
+                    self.showAlerts(title: "No Internet Connection", message: "Please check your WiFi connection.")
+                } else {
+                   
+                    self.charactersViewModel.bindCharactersModelToVC = {
+                        DispatchQueue.main.async {
+                            self.tableViewCharacters.reloadData()
+                        }
+                    }
+                    self.charactersViewModel.fetchCharactersIfNeeded()
+                }
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,6 +50,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
          tableViewCharacters.delegate = self
          searchBarCharacters.delegate = self
         
+
         
         // Bind the ViewModel to the ViewController
         charactersViewModel.bindCharactersModelToVC = {
@@ -35,7 +60,8 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         }
         
         // Fetch initial starships data
-        charactersViewModel.fetchCharacters()
+        charactersViewModel.setupReachability()
+        charactersViewModel.fetchCharactersIfNeeded()
         
     }
 

@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import Reachability
 
 class CharactersDetailsViewModel{
     
     init(){
+        setupReachability()
+        fetchCharactersDetails()
     }
     
 
@@ -20,6 +23,35 @@ class CharactersDetailsViewModel{
     }
     
     var bindCharactersDetailsModelToVC: (()->()) = {}
+    
+    
+    var reachability: Reachability?
+    var networkStatusChanged: ((Bool) -> Void)?
+    func setupReachability() {
+        reachability = try? Reachability()
+        reachability?.whenReachable = { reachability in
+            self.networkStatusChanged?(true)
+            print("Network reachable")
+            self.fetchCharactersDetailsIfNeeded()
+        }
+        reachability?.whenUnreachable = { _ in
+            self.networkStatusChanged?(false)
+            print("Network unreachable")
+        }
+
+        do {
+            try reachability?.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+    func fetchCharactersDetailsIfNeeded() {
+        guard reachability?.connection != .unavailable else {
+            print("No internet connection")
+            return
+        }
+        fetchCharactersDetails()
+    }
     
     func fetchCharactersDetails() {
 
