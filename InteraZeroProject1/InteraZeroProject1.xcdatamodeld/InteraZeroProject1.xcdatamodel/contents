@@ -21,7 +21,7 @@
         <attribute name="passengers" optional="YES" attributeType="String"/>
     </entity>
     <entity name="StarshipEntity" representedClassName="StarshipEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="starshipName" optional="YES"/>
+        <attribute name="starshipName" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="CharacterDetailsEntity" positionX="-63" positionY="-18" width="128" height="134"/>

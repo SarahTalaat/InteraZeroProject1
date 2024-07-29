@@ -15,6 +15,8 @@
 		B664E1152C57DEC50083201D /* LocalStarshipDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1142C57DEC50083201D /* LocalStarshipDetails.swift */; };
 		B664E1172C57EF250083201D /* LocalStarship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1162C57EF250083201D /* LocalStarship.swift */; };
 		B664E1192C57EF480083201D /* LocalCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1182C57EF480083201D /* LocalCharacter.swift */; };
+		B664E11E2C57F94A0083201D /* FavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E11D2C57F94A0083201D /* FavouriteVC.swift */; };
+		B664E1202C57F96A0083201D /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E11F2C57F96A0083201D /* FavouritesViewModel.swift */; };
 		B668949F2C568F0F00C60476 /* StarshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668949E2C568F0F00C60476 /* StarshipViewModel.swift */; };
 		B66894A12C56943B00C60476 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B66894A02C56943B00C60476 /* CustomTableViewCell.xib */; };
 		B66894A32C56954D00C60476 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894A22C56954D00C60476 /* CustomTableViewCell.swift */; };
@@ -74,6 +76,8 @@
 		B664E1142C57DEC50083201D /* LocalStarshipDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStarshipDetails.swift; sourceTree = "<group>"; };
 		B664E1162C57EF250083201D /* LocalStarship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStarship.swift; sourceTree = "<group>"; };
 		B664E1182C57EF480083201D /* LocalCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCharacter.swift; sourceTree = "<group>"; };
+		B664E11D2C57F94A0083201D /* FavouriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVC.swift; sourceTree = "<group>"; };
+		B664E11F2C57F96A0083201D /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		B668949E2C568F0F00C60476 /* StarshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewModel.swift; sourceTree = "<group>"; };
 		B66894A02C56943B00C60476 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		B66894A22C56954D00C60476 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -156,6 +160,31 @@
 				17578D97F2A58B7C434C3436 /* Pods-InteraZeroProject1Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B664E11A2C57F8F40083201D /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				B664E11C2C57F9100083201D /* ViewModel */,
+				B664E11B2C57F9090083201D /* View */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		B664E11B2C57F9090083201D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B664E11D2C57F94A0083201D /* FavouriteVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B664E11C2C57F9100083201D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B664E11F2C57F96A0083201D /* FavouritesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B668949A2C568E9A00C60476 /* View */ = {
@@ -275,6 +304,7 @@
 		B697AA942C56702300795D48 /* InteraZeroProject1 */ = {
 			isa = PBXGroup;
 			children = (
+				B664E11A2C57F8F40083201D /* Favourites */,
 				B66894B42C56C55D00C60476 /* SharedData */,
 				B6ED9DF72C56816800CDAB30 /* Utilities */,
 				B6E6B0A32C567C2D00F73337 /* Services */,
@@ -633,6 +663,7 @@
 				B6ED9DF62C567FD400CDAB30 /* NetworkService.swift in Sources */,
 				B697AAA02C56702300795D48 /* InteraZeroProject1.xcdatamodeld in Sources */,
 				B664E1192C57EF480083201D /* LocalCharacter.swift in Sources */,
+				B664E1202C57F96A0083201D /* FavouritesViewModel.swift in Sources */,
 				B664E1112C57DDEC0083201D /* DatabaseService.swift in Sources */,
 				B66894A32C56954D00C60476 /* CustomTableViewCell.swift in Sources */,
 				B66894A92C56AF1F00C60476 /* CharactersVC.swift in Sources */,
@@ -641,6 +672,7 @@
 				B697AA982C56702300795D48 /* SceneDelegate.swift in Sources */,
 				B664E1152C57DEC50083201D /* LocalStarshipDetails.swift in Sources */,
 				B66894B62C56C5A400C60476 /* SharedDataModel.swift in Sources */,
+				B664E11E2C57F94A0083201D /* FavouriteVC.swift in Sources */,
 				B668949F2C568F0F00C60476 /* StarshipViewModel.swift in Sources */,
 				B6ED9DF92C56817900CDAB30 /* Constants.swift in Sources */,
 				B66894C02C56CF2E00C60476 /* StarshipDetailsViewModel.swift in Sources */,
