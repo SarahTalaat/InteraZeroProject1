@@ -13,6 +13,8 @@
 		B664E1112C57DDEC0083201D /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1102C57DDEC0083201D /* DatabaseService.swift */; };
 		B664E1132C57DE5F0083201D /* LocalCharacterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1122C57DE5F0083201D /* LocalCharacterDetails.swift */; };
 		B664E1152C57DEC50083201D /* LocalStarshipDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1142C57DEC50083201D /* LocalStarshipDetails.swift */; };
+		B664E1172C57EF250083201D /* LocalStarship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1162C57EF250083201D /* LocalStarship.swift */; };
+		B664E1192C57EF480083201D /* LocalCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1182C57EF480083201D /* LocalCharacter.swift */; };
 		B668949F2C568F0F00C60476 /* StarshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668949E2C568F0F00C60476 /* StarshipViewModel.swift */; };
 		B66894A12C56943B00C60476 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B66894A02C56943B00C60476 /* CustomTableViewCell.xib */; };
 		B66894A32C56954D00C60476 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66894A22C56954D00C60476 /* CustomTableViewCell.swift */; };
@@ -70,6 +72,8 @@
 		B664E1102C57DDEC0083201D /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B664E1122C57DE5F0083201D /* LocalCharacterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCharacterDetails.swift; sourceTree = "<group>"; };
 		B664E1142C57DEC50083201D /* LocalStarshipDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStarshipDetails.swift; sourceTree = "<group>"; };
+		B664E1162C57EF250083201D /* LocalStarship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStarship.swift; sourceTree = "<group>"; };
+		B664E1182C57EF480083201D /* LocalCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCharacter.swift; sourceTree = "<group>"; };
 		B668949E2C568F0F00C60476 /* StarshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewModel.swift; sourceTree = "<group>"; };
 		B66894A02C56943B00C60476 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		B66894A22C56954D00C60476 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 				B6E6B0A12C567BE800F73337 /* StarshipModel.swift */,
 				B664E1122C57DE5F0083201D /* LocalCharacterDetails.swift */,
 				B664E1142C57DEC50083201D /* LocalStarshipDetails.swift */,
+				B664E1162C57EF250083201D /* LocalStarship.swift */,
+				B664E1182C57EF480083201D /* LocalCharacter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -621,10 +627,12 @@
 			files = (
 				B66894A72C56AF0700C60476 /* CharactersViewModel.swift in Sources */,
 				B6E6B0A22C567BE800F73337 /* StarshipModel.swift in Sources */,
+				B664E1172C57EF250083201D /* LocalStarship.swift in Sources */,
 				B697AA962C56702300795D48 /* AppDelegate.swift in Sources */,
 				B66894C42C57089D00C60476 /* SharedMethods.swift in Sources */,
 				B6ED9DF62C567FD400CDAB30 /* NetworkService.swift in Sources */,
 				B697AAA02C56702300795D48 /* InteraZeroProject1.xcdatamodeld in Sources */,
+				B664E1192C57EF480083201D /* LocalCharacter.swift in Sources */,
 				B664E1112C57DDEC0083201D /* DatabaseService.swift in Sources */,
 				B66894A32C56954D00C60476 /* CustomTableViewCell.swift in Sources */,
 				B66894A92C56AF1F00C60476 /* CharactersVC.swift in Sources */,

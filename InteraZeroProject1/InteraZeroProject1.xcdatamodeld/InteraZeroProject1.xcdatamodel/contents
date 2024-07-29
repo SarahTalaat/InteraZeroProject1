@@ -9,6 +9,9 @@
         <attribute name="mass" optional="YES" attributeType="String"/>
         <attribute name="skinColor" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="CharacterEntity" representedClassName="CharacterEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="characterName" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="StarshipDetailsEntity" representedClassName="StarshipDetailsEntity" syncable="YES" codeGenerationType="class">
         <attribute name="cost" optional="YES" attributeType="String"/>
         <attribute name="crew" optional="YES" attributeType="String"/>
@@ -17,8 +20,13 @@
         <attribute name="model" optional="YES" attributeType="String"/>
         <attribute name="passengers" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="StarshipEntity" representedClassName="StarshipEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="starshipName" optional="YES"/>
+    </entity>
     <elements>
         <element name="CharacterDetailsEntity" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="StarshipDetailsEntity" positionX="-54" positionY="45" width="128" height="119"/>
+        <element name="StarshipEntity" positionX="-36" positionY="81" width="128" height="44"/>
+        <element name="CharacterEntity" positionX="-18" positionY="90" width="128" height="44"/>
     </elements>
 </model>

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LocalCharacterDetails {
+struct LocalCharacterDetails {
     
     var birthYear: String?
     var eyeColor: String?

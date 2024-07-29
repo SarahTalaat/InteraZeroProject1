@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LocalStarshipDetails {
+struct LocalStarshipDetails {
     
     var cost: String?
     var crew: String?
