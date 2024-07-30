@@ -18,6 +18,7 @@ class CharacterDetailsVC: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var eyeColorLabel: UILabel!
     
+    private var loadingIndicator: UIActivityIndicatorView!
     let charactersDetailsViewModel = DependencyProvider.charactersDetailsViewModel
   
     override func viewWillAppear(_ animated: Bool) {
@@ -36,12 +37,15 @@ class CharacterDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupLoadingIndicator()
+        
         // Do any additional setup after loading the view.
 
         
         // Bind the ViewModel to the ViewController
         charactersDetailsViewModel.bindCharactersDetailsModelToVC = {
             DispatchQueue.main.async {
+                self.stopLoading()
                 self.heightLabel.text = self.charactersDetailsViewModel.characterDetails?.height
                 self.massLabel.text = self.charactersDetailsViewModel.characterDetails?.mass
                 self.hairColorLabel.text = self.charactersDetailsViewModel.characterDetails?.hair_color
@@ -52,7 +56,7 @@ class CharacterDetailsVC: UIViewController {
             }
         }
         
-        // Fetch initial starships data
+        startLoading()
         charactersDetailsViewModel.setupReachability()
         charactersDetailsViewModel.fetchCharactersDetailsIfNeeded()
         
@@ -70,5 +74,28 @@ class CharacterDetailsVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    private func setupLoadingIndicator() {
+        loadingIndicator = UIActivityIndicatorView(style: .large)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingIndicator)
+        
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    private func startLoading() {
+        loadingIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+    }
+
+    private func stopLoading() {
+        loadingIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
+    }
+    
 
 }

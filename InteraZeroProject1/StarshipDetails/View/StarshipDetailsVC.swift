@@ -17,7 +17,8 @@ class StarshipDetailsVC: UIViewController {
     
     
     let starshipDetailsViewModel = DependencyProvider.starshipDetailsViewModel
-    
+    private var loadingIndicator: UIActivityIndicatorView!
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,11 +36,14 @@ class StarshipDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupLoadingIndicator()
 
         // Do any additional setup after loading the view.
         // Bind the ViewModel to the ViewController
         starshipDetailsViewModel.bindStarshipDetailsModelToVC = {
             DispatchQueue.main.async {
+                self.stopLoading()
                 self.modelLabel.text = self.starshipDetailsViewModel.starshipDetails?.model
                 self.manufacturerLabel.text = self.starshipDetailsViewModel.starshipDetails?.manufacturer
                 self.costLabel.text = self.starshipDetailsViewModel.starshipDetails?.cost_in_credits
@@ -50,8 +54,29 @@ class StarshipDetailsVC: UIViewController {
             }
         }
         
-        // Fetch initial starships data
+         startLoading()
          starshipDetailsViewModel.fetchStarshipDetails()
+    }
+    
+    private func setupLoadingIndicator() {
+        loadingIndicator = UIActivityIndicatorView(style: .large)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingIndicator)
+        
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    private func startLoading() {
+        loadingIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+    }
+
+    private func stopLoading() {
+        loadingIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
     }
     
 
