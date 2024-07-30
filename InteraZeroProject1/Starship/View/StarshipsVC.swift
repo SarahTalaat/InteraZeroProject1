@@ -7,9 +7,7 @@
 
 import UIKit
 
-class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-
-    
+class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTableViewCellDelegate {
 
     @IBOutlet weak var searchBarStarships: UISearchBar!
     @IBOutlet weak var tableViewStarships: UITableView!
@@ -18,6 +16,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        tableViewStarships.reloadData()
         starshipViewModel.segmentControlTitle(index: 1)
         
         starshipViewModel.networkStatusChanged = { isReachable in
@@ -71,6 +70,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewStarships.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+        cell.delegate = self
         cell.name.text = starshipViewModel.starships[indexPath.row].name
         cell.starshipName(name: starshipViewModel.starships[indexPath.row].name)
         
@@ -91,6 +91,11 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         starshipViewModel.searchStarships(with: searchText)
     }
     
+    func didTapDelete(cell: CustomTableViewCell) {
+        print("star name: \(cell.starshipName)")
+        starshipViewModel.toggleStarshipFavoriteState(name: cell.starshipName ?? "")
+        tableViewStarships.reloadData()
+    }
     
 }
 

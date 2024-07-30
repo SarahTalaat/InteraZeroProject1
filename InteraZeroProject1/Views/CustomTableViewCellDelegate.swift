@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CustomTableViewCellDelegate: AnyObject {
-    func didTapFavouriteButton(cell: CustomTableViewCell)
+    func didTapDelete(cell: CustomTableViewCell)
 }

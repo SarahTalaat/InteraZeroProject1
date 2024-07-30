@@ -79,14 +79,15 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             switch segmentedControl.selectedSegmentIndex {
                   case 0:
                       cell.name.text = favouriteViewModel.favouriteCharactersArray[indexPath.row].name
-//                      cell.characterName(name: favouriteViewModel.favouriteCharactersArray[indexPath.row].name ?? "")
+                      cell.setFavouriteButtonVisibility(isVisible: false)
                       return cell
                   case 1:
                       cell.name.text = favouriteViewModel.favouriteStarshipsArray[indexPath.row].name
-//                      cell.starshipName(name: favouriteViewModel.favouriteStarshipsArray[indexPath.row].name ?? "")
+                      cell.setFavouriteButtonVisibility(isVisible: false)
                       return cell
                   default:
                       cell.name.text = favouriteViewModel.favouriteStarshipsArray[indexPath.row].name
+                      cell.setFavouriteButtonVisibility(isVisible: false)
                       return cell
                       
                   }

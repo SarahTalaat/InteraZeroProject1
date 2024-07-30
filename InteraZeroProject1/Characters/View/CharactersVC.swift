@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTableViewCellDelegate {
+
+    
 
     
 
@@ -21,6 +23,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        tableViewCharacters.reloadData()
         charactersViewModel.segmentControlInndex(index: 0)
         
         charactersViewModel.networkStatusChanged = { isReachable in
@@ -72,7 +75,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewCharacters.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-  
+        cell.delegate = self
         cell.name.text = charactersViewModel.characters[indexPath.row].name
         cell.characterName(name: charactersViewModel.characters[indexPath.row].name)
         return cell
@@ -89,6 +92,11 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         charactersViewModel.searchCharacters(with: searchText)
+    }
+    
+    func didTapDelete(cell: CustomTableViewCell) {
+        charactersViewModel.toggleCharacterFavoriteState(name: cell.characterName ?? "")
+        tableViewCharacters.reloadData()
     }
 }
 

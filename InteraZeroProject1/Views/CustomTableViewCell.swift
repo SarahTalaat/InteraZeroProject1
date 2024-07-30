@@ -30,16 +30,6 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBAction func favouritesButton(_ sender: Any) {
         
-//        print("FavouriteButton Tapped")
-//        if starshipViewModel.returnSegmentControlTitle() == 1 {
-//            print("z Starship cell fav btn")
-//            starshipViewModel.insertStarshipToCoreData(name: starshipName ?? "")
-//        }
-//        if characterViewModel.returnSegmentControlIndex() == 0 {
-//            print("z character cell fav btn")
-//            characterViewModel.insertCharacterToCoreData(name: characterName ?? "")
-//        }
-        
         if starshipViewModel.returnSegmentControlTitle() == 1, let name = starshipName {
             starshipViewModel.toggleStarshipFavoriteState(name: name)
             updateFavouriteButtonState(isFavorited: starshipViewModel.isStarshipFavorited(name: name))
@@ -48,8 +38,7 @@ class CustomTableViewCell: UITableViewCell {
             updateFavouriteButtonState(isFavorited: characterViewModel.isCharacterFavorited(name: name))
         }
         
-        // Notify the delegate
-        delegate?.didTapFavouriteButton(cell: self)
+
         
     }
        
@@ -71,4 +60,7 @@ class CustomTableViewCell: UITableViewCell {
         favouriteButtonUI.setImage(UIImage(systemName: imageName), for: .normal)
     }
     
+    func setFavouriteButtonVisibility(isVisible: Bool) {
+        favouriteButtonUI.isHidden = !isVisible
+    }
 }
