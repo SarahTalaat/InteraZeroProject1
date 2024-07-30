@@ -140,19 +140,38 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     
     
     func didTapFavouriteButton(cell: CustomTableViewCell) {
-     
-        startFavLoading()
-        
-        if let name = cell.characterName {
-            if cell.characterName != nil {
-                starshipViewModel.toggleStarshipFavoriteState(name: name)
-            }
-            tableViewStarships.reloadData()
+        if starshipViewModel.isStarshipFavorited(name: cell.starshipName ?? ""){
+            showProgress(message: "Added to Favourite Successfully!")
+        } else{
+            let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
             
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.stopFavLoading()
-            }
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+ 
+                self.starshipViewModel.toggleStarshipFavoriteState(name: cell.starshipName ?? "")
+                self.didTapDelete(cell: cell)
+               
+                self.tableViewStarships.reloadData()
+          
+            }))
+            
+            present(alert, animated: true, completion: nil)
+        }
+        
+ 
+    }
+    
+    
+    func showProgress(message : String){
+        let hud = JGProgressHUD()
+        hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        hud.textLabel.text = message
+        hud.square = true
+        hud.style = .dark
+        hud.show(in: view)
+        hud.dismiss(afterDelay: 1, animated: true){
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
