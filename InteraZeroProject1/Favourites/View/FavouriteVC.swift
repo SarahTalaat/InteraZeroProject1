@@ -14,10 +14,14 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var favouriteTableview: UITableView!
     var favouriteViewModel = DependencyProvider.favouritesViewModel
     
+    private var emptyImageView: UIImageView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         favouriteViewModel.retrieveCharactersFromCoreData()
         favouriteViewModel.retrieveStarshipsFromCoreData()
+        
+        updateUI()
         
         favouriteTableview.reloadData()
     }
@@ -33,28 +37,35 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let nib = UINib(nibName: "CustomTableViewCell", bundle: nil)
          favouriteTableview.register(nib, forCellReuseIdentifier: "cell")
         
+        setupEmptyImageView()
+        
+        
         favouriteViewModel.bindStarshipsToVC = {
             DispatchQueue.main.async {
-                self.favouriteTableview.reloadData()
+               // self.favouriteTableview.reloadData()
+                self.updateUI()
             }
         }
         
         favouriteViewModel.bindCharactersToVC = {
             DispatchQueue.main.async {
-                self.favouriteTableview.reloadData()
+              //  self.favouriteTableview.reloadData()
+                self.updateUI()
             }
         }
         
         segmentedControl.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
 
         
-        favouriteTableview.reloadData()
+        updateUI()
+        //favouriteTableview.reloadData()
        
         
     }
     
     @objc func segmentChanged(_ sender: UISegmentedControl) {
-        favouriteTableview.reloadData()
+        updateUI()
+       // favouriteTableview.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,15 +123,44 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     break
                 }
 
-                // Reload data after deletion
-                self.favouriteTableview.reloadData()
+               
+              //  self.favouriteTableview.reloadData()
+                self.updateUI()
             }))
             
             present(alert, animated: true, completion: nil)
         }
     }
 
-
+    private func setupEmptyImageView() {
+        emptyImageView = UIImageView(image: UIImage(named: "noFavourites.png"))
+        emptyImageView.contentMode = .scaleAspectFit
+        emptyImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emptyImageView)
+        
+        NSLayoutConstraint.activate([
+            emptyImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyImageView.widthAnchor.constraint(equalToConstant: 200),
+            emptyImageView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    private func updateUI() {
+        let hasItems: Bool
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            hasItems = favouriteViewModel.favouriteCharactersArray.count > 0
+        case 1:
+            hasItems = favouriteViewModel.favouriteStarshipsArray.count > 0
+        default:
+            hasItems = false
+        }
+        
+        emptyImageView.isHidden = hasItems
+        favouriteTableview.isHidden = !hasItems
+        favouriteTableview.reloadData()
+    }
     
     
     /*
