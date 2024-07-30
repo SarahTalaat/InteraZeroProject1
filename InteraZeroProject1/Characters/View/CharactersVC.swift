@@ -21,7 +21,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        charactersViewModel.segmentControlTitle(index: 0)
+        charactersViewModel.segmentControlInndex(index: 0)
         
         charactersViewModel.networkStatusChanged = { isReachable in
             DispatchQueue.main.async {

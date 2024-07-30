@@ -82,7 +82,7 @@ class DatabaseService {
                     return
                 }
                 
-                guard let entity = NSEntityDescription.entity(forEntityName: "StarshipEntity", in: context) else {
+                guard let entity = NSEntityDescription.entity(forEntityName: "CharacterEntity", in: context) else {
                     print("Error: Entity not found")
                     return
                 }

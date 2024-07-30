@@ -57,9 +57,10 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
             }
         }
         
-        // Fetch initial starships data
         starshipViewModel.setupReachability()
         starshipViewModel.fetchStarshipsIfNeeded()
+        
+        starshipViewModel.segmentControlTitle(index: 1)
         
     }
 
@@ -72,6 +73,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         let cell = tableViewStarships.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.name.text = starshipViewModel.starships[indexPath.row].name
         cell.starshipName(name: starshipViewModel.starships[indexPath.row].name)
+        
         return cell
     }
     

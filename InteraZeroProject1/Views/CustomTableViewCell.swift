@@ -32,7 +32,8 @@ class CustomTableViewCell: UITableViewCell {
         if starshipViewModel.returnSegmentControlTitle() == 1 {
             print("z Starship cell fav btn")
             starshipViewModel.insertStarshipToCoreData(name: starshipName ?? "")
-        } else if characterViewModel.returnSegmentControlTitle() == 0 {
+        }
+        if characterViewModel.returnSegmentControlIndex() == 0 {
             print("z character cell fav btn")
             characterViewModel.insertCharacterToCoreData(name: characterName ?? "")
         }

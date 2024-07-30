@@ -130,11 +130,11 @@ class CharactersViewModel {
         DatabaseService.instance.saveCharacterToCoreData(name: name)
     }
     
-    func segmentControlTitle(index:Int){
+    func segmentControlInndex(index:Int){
         SharedDataModel.instance.segmentControlIndex = index
     }
     
-    func returnSegmentControlTitle()->Int{
+    func returnSegmentControlIndex()->Int{
         return SharedDataModel.instance.segmentControlIndex ?? 0
     }
     
