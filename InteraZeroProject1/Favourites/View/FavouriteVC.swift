@@ -95,6 +95,33 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                switch self.segmentedControl.selectedSegmentIndex {
+                case 0:
+                    self.favouriteViewModel.deleteCharacterFromCoreData(localCharacter: self.favouriteViewModel.favouriteCharactersArray[indexPath.row])
+                case 1:
+                    self.favouriteViewModel.deleteStarshipFromCoreData(localStarship: self.favouriteViewModel.favouriteStarshipsArray[indexPath.row])
+                default:
+                    break
+                }
+
+                // Reload data after deletion
+                self.favouriteTableview.reloadData()
+            }))
+            
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
+
+    
+    
     /*
     // MARK: - Navigation
 
