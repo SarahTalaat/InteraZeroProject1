@@ -16,6 +16,9 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var searchBarCharacters: UISearchBar!
     @IBOutlet weak var tableViewCharacters: UITableView!
     
+    private let customTransitionDelegate = CustomTransitioningDelegate(transitionType: .push)
+    
+    
     let charactersViewModel = DependencyProvider.charactersViewModel
     
     private var loadingIndicator: UIActivityIndicatorView!
@@ -66,6 +69,9 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
                 self.tableViewCharacters.reloadData()
             }
         }
+        if let navigationController = self.navigationController {
+            navigationController.delegate = customTransitionDelegate
+        }
         
         // Fetch initial starships data
         charactersViewModel.setupReachability()
@@ -90,6 +96,8 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let charactersDetailsVC = storyboard.instantiateViewController(withIdentifier: "CharactersDetailsVC") as? CharacterDetailsVC {
             charactersViewModel.passSingleCharacterUrl(url: charactersViewModel.characters[indexPath.row].url)
+            let transitioningDelegate = CustomTransitioningDelegate(transitionType: .push)
+            self.navigationController?.delegate = transitioningDelegate as! UINavigationControllerDelegate
             charactersDetailsVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(charactersDetailsVC, animated: true)
         }

@@ -13,6 +13,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var tableViewStarships: UITableView!
     let starshipViewModel = DependencyProvider.starshipViewModel
     
+    private let customTransitionDelegate = CustomTransitioningDelegate(transitionType: .push)
     private var loadingIndicator: UIActivityIndicatorView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +64,10 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
             }
         }
         
+        if let navigationController = self.navigationController {
+            navigationController.delegate = customTransitionDelegate
+        }
+        
         starshipViewModel.setupReachability()
         starshipViewModel.fetchStarshipsIfNeeded()
         
@@ -88,6 +93,8 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let starshipDetailsVC = storyboard.instantiateViewController(withIdentifier: "StarshipDetailsVC") as? StarshipDetailsVC {
             starshipViewModel.passSingleStarshipUrl(url: starshipViewModel.starships[indexPath.row].url)
+            let transitioningDelegate = CustomTransitioningDelegate(transitionType: .push)
+            self.navigationController?.delegate = transitioningDelegate as! UINavigationControllerDelegate
             starshipDetailsVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(starshipDetailsVC, animated: true)
         }
