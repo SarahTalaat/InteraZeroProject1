@@ -31,13 +31,13 @@ class DatabaseService {
     
     func saveStarshipToCoreData(name: String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StarshipEntity")
-        let predicate = NSPredicate(format: "name == %@", name)
+        let predicate = NSPredicate(format: "starshipName == %@", name)
         fetchRequest.predicate = predicate
         
         do {
             let results = try managedContext?.fetch(fetchRequest)
             if let existingStarship = results?.first as? NSManagedObject {
-                existingStarship.setValue(name, forKey: "name")
+                existingStarship.setValue(name, forKey: "starshipName")
             } else {
 
                 let defaultContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
@@ -54,7 +54,7 @@ class DatabaseService {
                 }
                 
                 let starshipManagerObject = NSManagedObject(entity: entity, insertInto: context)
-                starshipManagerObject.setValue(name, forKey: "name")
+                starshipManagerObject.setValue(name, forKey: "starshipName")
             }
             
             try managedContext?.save()
@@ -65,13 +65,13 @@ class DatabaseService {
     
     func saveCharacterToCoreData(name: String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CharacterEntity")
-        let predicate = NSPredicate(format: "name == %@", name)
+        let predicate = NSPredicate(format: "characterName == %@", name)
         fetchRequest.predicate = predicate
         
         do {
             let results = try managedContext?.fetch(fetchRequest)
             if let existingCharacter = results?.first as? NSManagedObject {
-                existingCharacter.setValue(name, forKey: "name")
+                existingCharacter.setValue(name, forKey: "characterName")
             } else {
 
                 let defaultContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
@@ -88,7 +88,8 @@ class DatabaseService {
                 }
                 
                 let characterManagerObject = NSManagedObject(entity: entity, insertInto: context)
-                characterManagerObject.setValue(name, forKey: "name")
+             
+                characterManagerObject.setValue(name, forKey: "characterName")
             }
             
             try managedContext?.save()
@@ -109,7 +110,7 @@ class DatabaseService {
             starshipNSManagedObjectArray = try managedContext.fetch(fetchRequest)
             
             starshipArray = starshipNSManagedObjectArray.compactMap { (managedObject) -> LocalStarship? in
-                guard let name = managedObject.value(forKey: "name") as? String
+                guard let name = managedObject.value(forKey: "starshipName") as? String
                 else {
                     return nil
                 }
@@ -137,7 +138,7 @@ class DatabaseService {
             characterNSManagedObjectArray = try managedContext.fetch(fetchRequest)
             
             characterArray = characterNSManagedObjectArray.compactMap { (managedObject) -> LocalCharacter? in
-                guard let name = managedObject.value(forKey: "name") as? String
+                guard let name = managedObject.value(forKey: "characterName") as? String
                 else {
                     return nil
                 }
@@ -162,7 +163,7 @@ class DatabaseService {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StarshipEntity")
-        let predicate = NSPredicate(format: "name == %@", name)
+        let predicate = NSPredicate(format: "starshipName == %@", name)
         fetchRequest.predicate = predicate
         
         do {
@@ -185,7 +186,7 @@ class DatabaseService {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CharacterEntity")
-        let predicate = NSPredicate(format: "name == %@", name)
+        let predicate = NSPredicate(format: "characterName == %@", name)
         fetchRequest.predicate = predicate
         
         do {

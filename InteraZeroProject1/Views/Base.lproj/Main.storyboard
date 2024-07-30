@@ -429,7 +429,7 @@
         <!--Favourite-->
         <scene sceneID="uuT-oe-hgf">
             <objects>
-                <viewController id="vNI-m4-7sZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavouriteVC" id="vNI-m4-7sZ" customClass="FavouriteVC" customModule="InteraZeroProject1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cat-GX-VrP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -468,6 +468,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favourite" id="xGE-Rc-wZd"/>
+                    <connections>
+                        <outlet property="favouriteTableview" destination="3vt-AO-znV" id="jlt-ea-5bW"/>
+                        <outlet property="searchBar" destination="ljK-rz-mkp" id="ilV-4E-mB4"/>
+                        <outlet property="segmentedControl" destination="Pm7-Cr-8t9" id="bJa-2g-JHs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-Q4-xzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

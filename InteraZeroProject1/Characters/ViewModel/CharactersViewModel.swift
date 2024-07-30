@@ -126,4 +126,16 @@ class CharactersViewModel {
         SharedDataModel.instance.urlCharacter = url
     }
     
+    func insertCharacterToCoreData(name:String){
+        DatabaseService.instance.saveCharacterToCoreData(name: name)
+    }
+    
+    func segmentControlTitle(index:Int){
+        SharedDataModel.instance.segmentControlIndex = index
+    }
+    
+    func returnSegmentControlTitle()->Int{
+        return SharedDataModel.instance.segmentControlIndex ?? 0
+    }
+    
 }

@@ -10,13 +10,29 @@ import Foundation
 
 class FavouritesViewModel {
     
-    var favouriteStarshipsArray: [LocalStarship] = []
-    var favouriteCharactersArray: [LocalCharacter] = []
+    var favouriteStarshipsArray: [LocalStarship] = []{
+        didSet{
+            bindStarshipsToVC()
+        }
+    }
     
+    var favouriteCharactersArray: [LocalCharacter] = [] {
+        didSet{
+            bindCharactersToVC()
+        }
+    }
+    
+    init(){
+        
+    }
+    
+    var bindStarshipsToVC: (()->()) = {}
+    var bindCharactersToVC: (()->()) = {}
     
     func retrieveStarshipsFromCoreData()->[LocalStarship]{
         favouriteStarshipsArray.removeAll()
         favouriteStarshipsArray = DatabaseService.instance.retriveStarshipsFromCoreData()
+        print("z retrieved starshipArray : \(favouriteStarshipsArray)")
         return favouriteStarshipsArray
         
     }
@@ -24,6 +40,7 @@ class FavouritesViewModel {
     func retrieveCharactersFromCoreData()->[LocalCharacter]{
         favouriteCharactersArray.removeAll()
         favouriteCharactersArray = DatabaseService.instance.retriveCharactersFromCoreData()
+        print("z retrieved characterArray : \(favouriteCharactersArray)")
         return favouriteCharactersArray
     }
     

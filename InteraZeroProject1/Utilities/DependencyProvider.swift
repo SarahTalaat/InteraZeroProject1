@@ -25,4 +25,8 @@ class DependencyProvider {
     static var charactersDetailsViewModel: CharactersDetailsViewModel {
         return CharactersDetailsViewModel()
     }
+    
+    static var favouritesViewModel: FavouritesViewModel {
+        return FavouritesViewModel()
+    }
 }

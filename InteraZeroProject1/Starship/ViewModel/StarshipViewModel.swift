@@ -100,4 +100,16 @@ class StarshipViewModel {
     func passSingleStarshipUrl(url:String){
         SharedDataModel.instance.urlStarship = url
     }
+    
+    func insertStarshipToCoreData(name:String){
+        DatabaseService.instance.saveStarshipToCoreData(name: name)
+    }
+    
+    func segmentControlTitle(index:Int){
+        SharedDataModel.instance.segmentControlIndex = index
+    }
+    
+    func returnSegmentControlTitle()->Int{
+        return SharedDataModel.instance.segmentControlIndex ?? 1
+    }
 }

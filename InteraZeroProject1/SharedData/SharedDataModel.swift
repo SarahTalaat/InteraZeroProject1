@@ -14,5 +14,6 @@ class SharedDataModel {
     
     var urlCharacter: String?
     var urlStarship: String?
+    var segmentControlIndex: Int?
     
 }

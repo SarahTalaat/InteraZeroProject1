@@ -21,6 +21,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        charactersViewModel.segmentControlTitle(index: 0)
         
         charactersViewModel.networkStatusChanged = { isReachable in
             DispatchQueue.main.async {
@@ -51,7 +52,6 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
          searchBarCharacters.delegate = self
         
 
-        
         // Bind the ViewModel to the ViewController
         charactersViewModel.bindCharactersModelToVC = {
             DispatchQueue.main.async {
@@ -74,6 +74,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         let cell = tableViewCharacters.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
   
         cell.name.text = charactersViewModel.characters[indexPath.row].name
+        cell.characterName(name: charactersViewModel.characters[indexPath.row].name)
         return cell
     }
     

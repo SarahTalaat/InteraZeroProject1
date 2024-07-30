@@ -18,6 +18,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        starshipViewModel.segmentControlTitle(index: 1)
         
         starshipViewModel.networkStatusChanged = { isReachable in
             DispatchQueue.main.async {
@@ -70,6 +71,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewStarships.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.name.text = starshipViewModel.starships[indexPath.row].name
+        cell.starshipName(name: starshipViewModel.starships[indexPath.row].name)
         return cell
     }
     
