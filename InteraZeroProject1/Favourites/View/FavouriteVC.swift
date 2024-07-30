@@ -45,10 +45,16 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             }
         }
         
+        segmentedControl.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+
         
         favouriteTableview.reloadData()
        
         
+    }
+    
+    @objc func segmentChanged(_ sender: UISegmentedControl) {
+        favouriteTableview.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
