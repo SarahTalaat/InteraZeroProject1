@@ -85,6 +85,47 @@ class CharactersViewModel {
     }
     
     var bindCharactersModelToVC: (()->()) = {}
+
+    
+    func searchCharacters(with name: String) {
+        if name.isEmpty {
+            characters = allCharacters
+        } else {
+            characters = allCharacters.filter { $0.name.lowercased().contains(name.lowercased()) }
+        }
+    }
+    
+    func passSingleCharacterUrl(url:String){
+        SharedDataModel.instance.urlCharacter = url
+    }
+    
+    func insertCharacterToCoreData(name:String){
+        DatabaseService.instance.saveCharacterToCoreData(name: name)
+    }
+    
+    func segmentControlInndex(index:Int){
+        SharedDataModel.instance.segmentControlIndex = index
+    }
+    
+    func returnSegmentControlIndex()->Int{
+        return SharedDataModel.instance.segmentControlIndex ?? 0
+    }
+    
+    func isCharacterFavorited(name: String) -> Bool {
+        return DatabaseService.instance.retriveCharactersFromCoreData().contains { $0.name == name }
+    }
+
+    func toggleCharacterFavoriteState(name: String) {
+        if isCharacterFavorited(name: name) {
+            DatabaseService.instance.deleteCharacterFromCoreData(name: name)
+        } else {
+            DatabaseService.instance.saveCharacterToCoreData(name: name)
+        }
+    }
+    
+}
+
+
 //
 //    func fetchCharacters() {
 //         let endpoint: Constants.APIConfig = nextPage == nil ? .people : .endPoint(nextPage!)
@@ -112,30 +153,3 @@ class CharactersViewModel {
 //         }
 //     }
     
-
-    
-    func searchCharacters(with name: String) {
-        if name.isEmpty {
-            characters = allCharacters
-        } else {
-            characters = allCharacters.filter { $0.name.lowercased().contains(name.lowercased()) }
-        }
-    }
-    
-    func passSingleCharacterUrl(url:String){
-        SharedDataModel.instance.urlCharacter = url
-    }
-    
-    func insertCharacterToCoreData(name:String){
-        DatabaseService.instance.saveCharacterToCoreData(name: name)
-    }
-    
-    func segmentControlInndex(index:Int){
-        SharedDataModel.instance.segmentControlIndex = index
-    }
-    
-    func returnSegmentControlIndex()->Int{
-        return SharedDataModel.instance.segmentControlIndex ?? 0
-    }
-    
-}

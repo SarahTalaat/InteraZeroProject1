@@ -112,4 +112,17 @@ class StarshipViewModel {
     func returnSegmentControlTitle()->Int{
         return SharedDataModel.instance.segmentControlIndex ?? 1
     }
+    
+    func isStarshipFavorited(name: String) -> Bool {
+        return DatabaseService.instance.retriveStarshipsFromCoreData().contains { $0.name == name }
+    }
+
+    func toggleStarshipFavoriteState(name: String) {
+        if isStarshipFavorited(name: name) {
+            DatabaseService.instance.deleteStarshipFromCoreData(name: name)
+        } else {
+            DatabaseService.instance.saveStarshipToCoreData(name: name)
+        }
+    }
+    
 }

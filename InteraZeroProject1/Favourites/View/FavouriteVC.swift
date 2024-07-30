@@ -75,7 +75,7 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
         let cell = favouriteTableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
-  
+       
             switch segmentedControl.selectedSegmentIndex {
                   case 0:
                       cell.name.text = favouriteViewModel.favouriteCharactersArray[indexPath.row].name

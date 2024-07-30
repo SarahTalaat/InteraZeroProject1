@@ -10,6 +10,7 @@
 		23B41044256A4D3FA324339F /* Pods_InteraZeroProject1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C8451C1280020920F502A2 /* Pods_InteraZeroProject1Tests.framework */; };
 		419508B9809EAD20A6BA0DB2 /* Pods_InteraZeroProject1_InteraZeroProject1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AB74B1ACD38D4AAB5AE3CE /* Pods_InteraZeroProject1_InteraZeroProject1UITests.framework */; };
 		8FE7EF5E2D729A9739999B26 /* Pods_InteraZeroProject1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F156E88F2B4A207055017E37 /* Pods_InteraZeroProject1.framework */; };
+		B61E45062C591C9B00315430 /* CustomTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E45052C591C9B00315430 /* CustomTableViewCellDelegate.swift */; };
 		B664E1112C57DDEC0083201D /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1102C57DDEC0083201D /* DatabaseService.swift */; };
 		B664E1172C57EF250083201D /* LocalStarship.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1162C57EF250083201D /* LocalStarship.swift */; };
 		B664E1192C57EF480083201D /* LocalCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664E1182C57EF480083201D /* LocalCharacter.swift */; };
@@ -69,6 +70,7 @@
 		43C90EFED0D63C075CE55ECF /* Pods-InteraZeroProject1-InteraZeroProject1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteraZeroProject1-InteraZeroProject1UITests.release.xcconfig"; path = "Target Support Files/Pods-InteraZeroProject1-InteraZeroProject1UITests/Pods-InteraZeroProject1-InteraZeroProject1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		5E43EDD115D089B04BEE8BD1 /* Pods-InteraZeroProject1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteraZeroProject1.release.xcconfig"; path = "Target Support Files/Pods-InteraZeroProject1/Pods-InteraZeroProject1.release.xcconfig"; sourceTree = "<group>"; };
 		78DF2FEB995AD9689D1C5404 /* Pods-InteraZeroProject1-InteraZeroProject1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteraZeroProject1-InteraZeroProject1UITests.debug.xcconfig"; path = "Target Support Files/Pods-InteraZeroProject1-InteraZeroProject1UITests/Pods-InteraZeroProject1-InteraZeroProject1UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B61E45052C591C9B00315430 /* CustomTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		B664E1102C57DDEC0083201D /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B664E1162C57EF250083201D /* LocalStarship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStarship.swift; sourceTree = "<group>"; };
 		B664E1182C57EF480083201D /* LocalCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCharacter.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				B697AAA32C56702500795D48 /* LaunchScreen.storyboard */,
 				B66894A02C56943B00C60476 /* CustomTableViewCell.xib */,
 				B66894A22C56954D00C60476 /* CustomTableViewCell.swift */,
+				B61E45052C591C9B00315430 /* CustomTableViewCellDelegate.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				B697AA982C56702300795D48 /* SceneDelegate.swift in Sources */,
 				B66894B62C56C5A400C60476 /* SharedDataModel.swift in Sources */,
 				B664E11E2C57F94A0083201D /* FavouriteVC.swift in Sources */,
+				B61E45062C591C9B00315430 /* CustomTableViewCellDelegate.swift in Sources */,
 				B668949F2C568F0F00C60476 /* StarshipViewModel.swift in Sources */,
 				B6ED9DF92C56817900CDAB30 /* Constants.swift in Sources */,
 				B66894C02C56CF2E00C60476 /* StarshipDetailsViewModel.swift in Sources */,

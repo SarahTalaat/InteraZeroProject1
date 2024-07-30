@@ -44,6 +44,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="favouriteButtonUI" destination="P7f-1t-FOr" id="hQo-Zv-ouS"/>
                 <outlet property="name" destination="37E-6D-g8n" id="xIC-V7-7iq"/>
             </connections>
             <point key="canvasLocation" x="343.47826086956525" y="99.776785714285708"/>
