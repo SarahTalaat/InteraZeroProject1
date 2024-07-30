@@ -121,6 +121,8 @@ class CharactersViewModel {
         } else {
             DatabaseService.instance.saveCharacterToCoreData(name: name)
         }
+
+        
     }
     
 }

@@ -38,7 +38,9 @@ class CustomTableViewCell: UITableViewCell {
             updateFavouriteButtonState(isFavorited: characterViewModel.isCharacterFavorited(name: name))
         }
         
-
+        delegate?.didTapFavouriteButton(cell: self)
+        
+        
         
     }
        

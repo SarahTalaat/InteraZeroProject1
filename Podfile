@@ -9,6 +9,7 @@ target 'InteraZeroProject1' do
   pod 'ReachabilitySwift'
   pod 'lottie-ios'
   pod 'Kingfisher'
+  pod 'JGProgressHUD'
 
   # Pods for InteraZeroProject1
 

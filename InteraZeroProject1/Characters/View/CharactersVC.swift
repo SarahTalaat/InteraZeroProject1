@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import JGProgressHUD
+
 
 class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTableViewCellDelegate {
+
+    
 
     
 
@@ -18,7 +22,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     
     private let customTransitionDelegate = CustomTransitioningDelegate(transitionType: .push)
     
-    
+
     let charactersViewModel = DependencyProvider.charactersViewModel
     
     private var loadingIndicator: UIActivityIndicatorView!
@@ -61,6 +65,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
          searchBarCharacters.delegate = self
         
         setupLoadingIndicator()
+      
         
         // Bind the ViewModel to the ViewController
         charactersViewModel.bindCharactersModelToVC = {
@@ -112,6 +117,41 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         tableViewCharacters.reloadData()
     }
     
+    func didTapFavouriteButton(cell: CustomTableViewCell) {
+        if charactersViewModel.isCharacterFavorited(name: cell.characterName ?? ""){
+            showProgress(message: "Added to Favourite Successfully!")
+        } else{
+            let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+ 
+                self.charactersViewModel.toggleCharacterFavoriteState(name: cell.characterName ?? "")
+                self.didTapDelete(cell: cell)
+               
+                self.tableViewCharacters.reloadData()
+          
+            }))
+            
+            present(alert, animated: true, completion: nil)
+        }
+        
+ 
+    }
+    
+    func showProgress(message : String){
+        let hud = JGProgressHUD()
+        hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        hud.textLabel.text = message
+        hud.square = true
+        hud.style = .dark
+        hud.show(in: view)
+        hud.dismiss(afterDelay: 1, animated: true){
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     private func setupLoadingIndicator() {
         loadingIndicator = UIActivityIndicatorView(style: .large)
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -132,6 +172,9 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         loadingIndicator.stopAnimating()
         tableViewCharacters.isHidden = false
     }
+    
+
+    
     
 }
 

@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (4.9.1)
+  - JGProgressHUD (2.2)
   - Kingfisher (4.10.1)
   - lottie-ios (3.2.3)
   - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - JGProgressHUD
   - Kingfisher
   - lottie-ios
   - ReachabilitySwift
@@ -13,16 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - JGProgressHUD
     - Kingfisher
     - lottie-ios
     - ReachabilitySwift
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: 75f36b128f5782f97d0f95d5898b8c6a9e5341d6
+PODFILE CHECKSUM: f775bc802334e9cb91f5a66a252c4ad225ac181e
 
 COCOAPODS: 1.15.2

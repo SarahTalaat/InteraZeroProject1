@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import JGProgressHUD
+
 
 class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTableViewCellDelegate {
 
+    
+    private var loadingFavIndicator: JGProgressHUD!
     @IBOutlet weak var searchBarStarships: UISearchBar!
     @IBOutlet weak var tableViewStarships: UITableView!
     let starshipViewModel = DependencyProvider.starshipViewModel
@@ -55,6 +59,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
          searchBarStarships.delegate = self
         
         setupLoadingIndicator()
+        setupLoadingFavIndicator()
         
         // Bind the ViewModel to the ViewController
         starshipViewModel.bindStarshipModelToVC = {
@@ -110,6 +115,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         starshipViewModel.toggleStarshipFavoriteState(name: cell.starshipName ?? "")
         tableViewStarships.reloadData()
     }
+
     
     private func setupLoadingIndicator() {
         loadingIndicator = UIActivityIndicatorView(style: .large)
@@ -132,5 +138,34 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         tableViewStarships.isHidden = false
     }
     
+    
+    func didTapFavouriteButton(cell: CustomTableViewCell) {
+     
+        startFavLoading()
+        
+        if let name = cell.characterName {
+            if cell.characterName != nil {
+                starshipViewModel.toggleStarshipFavoriteState(name: name)
+            }
+            tableViewStarships.reloadData()
+            
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.stopFavLoading()
+            }
+        }
+    }
+    
+    private func setupLoadingFavIndicator() {
+        loadingFavIndicator = JGProgressHUD(style: .dark)
+    }
+
+    private func startFavLoading() {
+        loadingFavIndicator.show(in: self.view)
+    }
+
+    private func stopFavLoading() {
+        loadingFavIndicator.dismiss()
+    }
 }
 
