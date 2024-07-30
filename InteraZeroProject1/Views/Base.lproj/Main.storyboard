@@ -435,15 +435,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3vt-AO-znV">
-                                <rect key="frame" x="0.0" y="186" width="414" height="619"/>
+                                <rect key="frame" x="0.0" y="141" width="414" height="664"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ljK-rz-mkp">
-                                <rect key="frame" x="0.0" y="98" width="414" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pm7-Cr-8t9">
-                                <rect key="frame" x="9" y="146" width="394" height="31"/>
+                                <rect key="frame" x="9" y="101" width="394" height="41"/>
                                 <segments>
                                     <segment title="Characters"/>
                                     <segment title="Starships"/>
@@ -453,24 +449,19 @@
                         <viewLayoutGuide key="safeArea" id="IbX-m4-RMa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Pm7-Cr-8t9" firstAttribute="top" secondItem="ljK-rz-mkp" secondAttribute="bottom" constant="4" id="7Om-yp-I83"/>
-                            <constraint firstItem="Pm7-Cr-8t9" firstAttribute="height" secondItem="Cat-GX-VrP" secondAttribute="height" multiplier="0.0334821" id="814-5T-qZv"/>
-                            <constraint firstItem="IbX-m4-RMa" firstAttribute="bottom" secondItem="3vt-AO-znV" secondAttribute="bottom" constant="8" id="8QM-xF-v1I"/>
-                            <constraint firstItem="3vt-AO-znV" firstAttribute="leading" secondItem="IbX-m4-RMa" secondAttribute="leading" id="A6T-H4-0wR"/>
-                            <constraint firstItem="Pm7-Cr-8t9" firstAttribute="width" secondItem="Cat-GX-VrP" secondAttribute="width" multiplier="0.951691" id="aFT-bC-sIh"/>
-                            <constraint firstItem="Pm7-Cr-8t9" firstAttribute="leading" secondItem="IbX-m4-RMa" secondAttribute="leading" constant="9" id="f52-8y-OxI"/>
-                            <constraint firstItem="3vt-AO-znV" firstAttribute="top" secondItem="Pm7-Cr-8t9" secondAttribute="bottom" constant="10" id="iFh-iz-cHc"/>
-                            <constraint firstItem="ljK-rz-mkp" firstAttribute="width" secondItem="Cat-GX-VrP" secondAttribute="width" id="j7s-RK-DNf"/>
-                            <constraint firstItem="ljK-rz-mkp" firstAttribute="top" secondItem="IbX-m4-RMa" secondAttribute="top" constant="10" id="jza-xe-yV5"/>
-                            <constraint firstItem="ljK-rz-mkp" firstAttribute="height" secondItem="Cat-GX-VrP" secondAttribute="height" multiplier="0.0491071" id="kM7-SJ-SBQ"/>
-                            <constraint firstItem="ljK-rz-mkp" firstAttribute="centerX" secondItem="IbX-m4-RMa" secondAttribute="centerX" id="vcp-5d-Jgc"/>
-                            <constraint firstItem="3vt-AO-znV" firstAttribute="trailing" secondItem="ljK-rz-mkp" secondAttribute="trailing" id="xFE-v4-Zkx"/>
+                            <constraint firstItem="Pm7-Cr-8t9" firstAttribute="width" secondItem="Cat-GX-VrP" secondAttribute="width" multiplier="0.951691" id="6Qi-DS-QOX"/>
+                            <constraint firstItem="Pm7-Cr-8t9" firstAttribute="leading" secondItem="IbX-m4-RMa" secondAttribute="leading" constant="9" id="AWS-zy-ZjK"/>
+                            <constraint firstItem="3vt-AO-znV" firstAttribute="width" secondItem="Cat-GX-VrP" secondAttribute="width" id="QcC-k6-VTc"/>
+                            <constraint firstItem="3vt-AO-znV" firstAttribute="top" secondItem="Pm7-Cr-8t9" secondAttribute="bottom" id="QpZ-xA-iRT"/>
+                            <constraint firstItem="Pm7-Cr-8t9" firstAttribute="height" secondItem="Cat-GX-VrP" secondAttribute="height" multiplier="0.0446429" id="bbn-wc-Vsg"/>
+                            <constraint firstItem="Pm7-Cr-8t9" firstAttribute="top" secondItem="IbX-m4-RMa" secondAttribute="top" constant="13" id="fJR-lf-gfQ"/>
+                            <constraint firstItem="3vt-AO-znV" firstAttribute="height" secondItem="Cat-GX-VrP" secondAttribute="height" multiplier="0.741071" id="uLI-vT-mFm"/>
+                            <constraint firstItem="3vt-AO-znV" firstAttribute="leading" secondItem="IbX-m4-RMa" secondAttribute="leading" id="wdg-Mj-AqN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favourite" id="xGE-Rc-wZd"/>
                     <connections>
                         <outlet property="favouriteTableview" destination="3vt-AO-znV" id="jlt-ea-5bW"/>
-                        <outlet property="searchBar" destination="ljK-rz-mkp" id="ilV-4E-mB4"/>
                         <outlet property="segmentedControl" destination="Pm7-Cr-8t9" id="bJa-2g-JHs"/>
                     </connections>
                 </viewController>
