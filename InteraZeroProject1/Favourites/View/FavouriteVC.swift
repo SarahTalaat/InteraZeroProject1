@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -122,7 +123,8 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 default:
                     break
                 }
-
+                
+                self.showProgress(message: "Deleted Successfully")
                
               //  self.favouriteTableview.reloadData()
                 self.updateUI()
@@ -132,6 +134,18 @@ class FavouriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
 
+    func showProgress(message : String){
+        let hud = JGProgressHUD()
+        hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        hud.textLabel.text = message
+        hud.square = true
+        hud.style = .dark
+        hud.show(in: view)
+        hud.dismiss(afterDelay: 1.3, animated: true){
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     private func setupEmptyImageView() {
         emptyImageView = UIImageView(image: UIImage(named: "noFavourites.png"))
         emptyImageView.contentMode = .scaleAspectFit

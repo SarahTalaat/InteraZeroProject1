@@ -119,7 +119,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     
     func didTapFavouriteButton(cell: CustomTableViewCell) {
         if charactersViewModel.isCharacterFavorited(name: cell.characterName ?? ""){
-            showProgress(message: "Added to Favourite Successfully!")
+            showProgress(message: "Added Successfully!")
         } else{
             let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
             
@@ -129,6 +129,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
  
                 self.charactersViewModel.toggleCharacterFavoriteState(name: cell.characterName ?? "")
                 self.didTapDelete(cell: cell)
+                self.showProgress(message: "Deleted Successfully!")
                
                 self.tableViewCharacters.reloadData()
           
@@ -147,7 +148,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         hud.square = true
         hud.style = .dark
         hud.show(in: view)
-        hud.dismiss(afterDelay: 1, animated: true){
+        hud.dismiss(afterDelay: 1.3, animated: true){
             self.navigationController?.popViewController(animated: true)
         }
     }

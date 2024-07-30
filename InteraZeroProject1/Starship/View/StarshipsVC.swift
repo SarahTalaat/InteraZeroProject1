@@ -141,7 +141,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     
     func didTapFavouriteButton(cell: CustomTableViewCell) {
         if starshipViewModel.isStarshipFavorited(name: cell.starshipName ?? ""){
-            showProgress(message: "Added to Favourite Successfully!")
+            showProgress(message: "Added Successfully!")
         } else{
             let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
             
@@ -151,6 +151,7 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
  
                 self.starshipViewModel.toggleStarshipFavoriteState(name: cell.starshipName ?? "")
                 self.didTapDelete(cell: cell)
+                self.showProgress(message: "Deleted Successfully!")
                
                 self.tableViewStarships.reloadData()
           
