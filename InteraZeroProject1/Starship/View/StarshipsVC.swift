@@ -13,6 +13,8 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var tableViewStarships: UITableView!
     let starshipViewModel = DependencyProvider.starshipViewModel
     
+    private var loadingIndicator: UIActivityIndicatorView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -28,9 +30,12 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
                    
                     self.starshipViewModel.bindStarshipModelToVC = {
                         DispatchQueue.main.async {
+                            self.stopLoading()
                             self.tableViewStarships.reloadData()
                         }
                     }
+                    
+                    self.startLoading()
                     self.starshipViewModel.fetchStarshipsIfNeeded()
                     
                 }
@@ -48,10 +53,12 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
          tableViewStarships.delegate = self
          searchBarStarships.delegate = self
         
+        setupLoadingIndicator()
         
         // Bind the ViewModel to the ViewController
         starshipViewModel.bindStarshipModelToVC = {
             DispatchQueue.main.async {
+                self.stopLoading()
                 self.tableViewStarships.reloadData()
             }
         }
@@ -95,6 +102,27 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         print("star name: \(cell.starshipName)")
         starshipViewModel.toggleStarshipFavoriteState(name: cell.starshipName ?? "")
         tableViewStarships.reloadData()
+    }
+    
+    private func setupLoadingIndicator() {
+        loadingIndicator = UIActivityIndicatorView(style: .large)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingIndicator)
+        
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    private func startLoading() {
+        loadingIndicator.startAnimating()
+        tableViewStarships.isHidden = true
+    }
+
+    private func stopLoading() {
+        loadingIndicator.stopAnimating()
+        tableViewStarships.isHidden = false
     }
     
 }

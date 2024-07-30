@@ -18,7 +18,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     
     let charactersViewModel = DependencyProvider.charactersViewModel
     
-    
+    private var loadingIndicator: UIActivityIndicatorView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,9 +34,12 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
                    
                     self.charactersViewModel.bindCharactersModelToVC = {
                         DispatchQueue.main.async {
+                            self.stopLoading()
                             self.tableViewCharacters.reloadData()
                         }
                     }
+                    
+                    self.startLoading()
                     self.charactersViewModel.fetchCharactersIfNeeded()
                 }
             }
@@ -54,10 +57,12 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
          tableViewCharacters.delegate = self
          searchBarCharacters.delegate = self
         
-
+        setupLoadingIndicator()
+        
         // Bind the ViewModel to the ViewController
         charactersViewModel.bindCharactersModelToVC = {
             DispatchQueue.main.async {
+                self.stopLoading()
                 self.tableViewCharacters.reloadData()
             }
         }
@@ -98,5 +103,27 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         charactersViewModel.toggleCharacterFavoriteState(name: cell.characterName ?? "")
         tableViewCharacters.reloadData()
     }
+    
+    private func setupLoadingIndicator() {
+        loadingIndicator = UIActivityIndicatorView(style: .large)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingIndicator)
+        
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    private func startLoading() {
+        loadingIndicator.startAnimating()
+        tableViewCharacters.isHidden = true
+    }
+
+    private func stopLoading() {
+        loadingIndicator.stopAnimating()
+        tableViewCharacters.isHidden = false
+    }
+    
 }
 
