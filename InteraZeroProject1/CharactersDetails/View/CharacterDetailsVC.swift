@@ -8,7 +8,15 @@
 import UIKit
 
 class CharacterDetailsVC: UIViewController {
-
+    
+    
+    @IBOutlet weak var hairColorTitleLabel: UILabel!
+    @IBOutlet weak var genderTitleLabel: UILabel!
+    @IBOutlet weak var birthYearTitleLabel: UILabel!
+    @IBOutlet weak var eyeColorTitleLabel: UILabel!
+    @IBOutlet weak var skinColorTitleLabel: UILabel!
+    @IBOutlet weak var massTitleLabel: UILabel!
+    @IBOutlet weak var heightTitleLabel: UILabel!
     
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var massLabel: UILabel!
@@ -18,6 +26,8 @@ class CharacterDetailsVC: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var eyeColorLabel: UILabel!
     
+    var noInternetImageView: UIImageView!
+    
     private var loadingIndicator: UIActivityIndicatorView!
     let charactersDetailsViewModel = DependencyProvider.charactersDetailsViewModel
   
@@ -26,8 +36,11 @@ class CharacterDetailsVC: UIViewController {
         charactersDetailsViewModel.networkStatusChanged = { isReachable in
             DispatchQueue.main.async {
                 if !isReachable {
+                    self.showNoInternetImage()
                     self.showAlerts(title: "No Internet Connection", message: "Please check your WiFi connection.")
+                    self.stopLoading()
                 } else {
+                    self.hideNoInternetImage()
                     self.charactersDetailsViewModel.fetchCharactersDetailsIfNeeded()
                 }
             }
@@ -38,6 +51,7 @@ class CharacterDetailsVC: UIViewController {
         super.viewDidLoad()
 
         setupLoadingIndicator()
+        setupNoInternetImageView()
         
         // Do any additional setup after loading the view.
 
@@ -97,5 +111,56 @@ class CharacterDetailsVC: UIViewController {
         view.isUserInteractionEnabled = true
     }
     
+    private func setupNoInternetImageView() {
+            noInternetImageView = UIImageView(image: UIImage(named: "noInternet"))
+            noInternetImageView.contentMode = .scaleAspectFit
+            noInternetImageView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(noInternetImageView)
+            
+            NSLayoutConstraint.activate([
+                noInternetImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                noInternetImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                noInternetImageView.widthAnchor.constraint(equalToConstant: 200),
+                noInternetImageView.heightAnchor.constraint(equalToConstant: 200)
+            ])
+            
+            noInternetImageView.isHidden = true
+        }
+        
+        private func showNoInternetImage() {
+            noInternetImageView.isHidden = false
+            heightTitleLabel.isHidden = true
+            heightLabel.isHidden = true
+            massLabel.isHidden = true
+            massTitleLabel.isHidden = true
+            hairColorLabel.isHidden = true
+            hairColorTitleLabel.isHidden = true
+            skinColorLabel.isHidden = true
+            skinColorTitleLabel.isHidden = true
+            birthYearLabel.isHidden = true
+            birthYearTitleLabel.isHidden = true
+            genderLabel.isHidden = true
+            genderTitleLabel.isHidden = true
+            eyeColorLabel.isHidden = true
+            eyeColorTitleLabel.isHidden = true
+        }
+
+        private func hideNoInternetImage() {
+            noInternetImageView.isHidden = true
+            heightTitleLabel.isHidden = false
+            heightLabel.isHidden = false
+            massLabel.isHidden = false
+            massTitleLabel.isHidden = false
+            hairColorLabel.isHidden = false
+            hairColorTitleLabel.isHidden = false
+            skinColorLabel.isHidden = false
+            skinColorTitleLabel.isHidden = false
+            birthYearLabel.isHidden = false
+            birthYearTitleLabel.isHidden = false
+            genderLabel.isHidden = false
+            genderTitleLabel.isHidden = false
+            eyeColorLabel.isHidden = false
+            eyeColorTitleLabel.isHidden = false
+        }
 
 }
