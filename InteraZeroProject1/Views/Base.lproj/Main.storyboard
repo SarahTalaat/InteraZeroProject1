@@ -426,7 +426,7 @@
             </objects>
             <point key="canvasLocation" x="3711.594202898551" y="-218.30357142857142"/>
         </scene>
-        <!--Favourite-->
+        <!--Favourites-->
         <scene sceneID="uuT-oe-hgf">
             <objects>
                 <viewController storyboardIdentifier="FavouriteVC" id="vNI-m4-7sZ" customClass="FavouriteVC" customModule="InteraZeroProject1" customModuleProvider="target" sceneMemberID="viewController">
@@ -459,7 +459,7 @@
                             <constraint firstItem="3vt-AO-znV" firstAttribute="leading" secondItem="IbX-m4-RMa" secondAttribute="leading" id="wdg-Mj-AqN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favourite" id="xGE-Rc-wZd"/>
+                    <navigationItem key="navigationItem" title="Favourites" id="xGE-Rc-wZd"/>
                     <connections>
                         <outlet property="favouriteTableview" destination="3vt-AO-znV" id="jlt-ea-5bW"/>
                         <outlet property="segmentedControl" destination="Pm7-Cr-8t9" id="bJa-2g-JHs"/>
