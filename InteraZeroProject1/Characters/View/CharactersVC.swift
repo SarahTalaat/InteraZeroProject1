@@ -15,7 +15,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
 
     
 
-    
+    var noInternetImageView: UIImageView!
 
     @IBOutlet weak var searchBarCharacters: UISearchBar!
     @IBOutlet weak var tableViewCharacters: UITableView!
@@ -36,9 +36,10 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
         charactersViewModel.networkStatusChanged = { isReachable in
             DispatchQueue.main.async {
                 if !isReachable {
+                    self.showNoInternetImage()
                     self.showAlerts(title: "No Internet Connection", message: "Please check your WiFi connection.")
                 } else {
-                   
+                    self.hideNoInternetImage()
                     self.charactersViewModel.bindCharactersModelToVC = {
                         DispatchQueue.main.async {
                             self.stopLoading()
@@ -65,6 +66,7 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
          searchBarCharacters.delegate = self
         
         setupLoadingIndicator()
+        setupNoInternetImageView()
       
         
         // Bind the ViewModel to the ViewController
@@ -175,6 +177,31 @@ class CharactersVC: UIViewController,UITableViewDataSource, UITableViewDelegate,
     }
     
 
+    private func setupNoInternetImageView() {
+        noInternetImageView = UIImageView(image: UIImage(named: "noInternet.jpg"))
+        noInternetImageView.contentMode = .scaleAspectFit
+        noInternetImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(noInternetImageView)
+        
+        NSLayoutConstraint.activate([
+            noInternetImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noInternetImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            noInternetImageView.widthAnchor.constraint(equalToConstant: 200),
+            noInternetImageView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        noInternetImageView.isHidden = true
+    }
+    
+    private func showNoInternetImage() {
+        noInternetImageView.isHidden = false
+        tableViewCharacters.isHidden = true
+    }
+
+    private func hideNoInternetImage() {
+        noInternetImageView.isHidden = true
+        tableViewCharacters.isHidden = false
+    }
     
     
 }

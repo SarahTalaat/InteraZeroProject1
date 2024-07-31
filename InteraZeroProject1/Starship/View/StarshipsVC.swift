@@ -11,7 +11,7 @@ import JGProgressHUD
 
 class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTableViewCellDelegate {
 
-    
+    var noInternetImageView: UIImageView!
     private var loadingFavIndicator: JGProgressHUD!
     @IBOutlet weak var searchBarStarships: UISearchBar!
     @IBOutlet weak var tableViewStarships: UITableView!
@@ -29,10 +29,11 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
         starshipViewModel.networkStatusChanged = { isReachable in
             DispatchQueue.main.async {
                 if !isReachable {
+                    self.showNoInternetImage()
                     self.showAlerts(title: "No Internet Connection", message: "Please check your WiFi connection.")
                 }
                 else {
-                   
+                    self.hideNoInternetImage()
                     self.starshipViewModel.bindStarshipModelToVC = {
                         DispatchQueue.main.async {
                             self.stopLoading()
@@ -59,7 +60,8 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
          searchBarStarships.delegate = self
         
         setupLoadingIndicator()
-        setupLoadingFavIndicator()
+        //setupLoadingFavIndicator()
+        setupNoInternetImageView()
         
         // Bind the ViewModel to the ViewController
         starshipViewModel.bindStarshipModelToVC = {
@@ -186,6 +188,32 @@ class StarshipsVC: UIViewController,UITableViewDataSource, UITableViewDelegate, 
 
     private func stopFavLoading() {
         loadingFavIndicator.dismiss()
+    }
+    
+    private func setupNoInternetImageView() {
+        noInternetImageView = UIImageView(image: UIImage(named: "noInternet.jpg"))
+        noInternetImageView.contentMode = .scaleAspectFit
+        noInternetImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(noInternetImageView)
+        
+        NSLayoutConstraint.activate([
+            noInternetImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noInternetImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            noInternetImageView.widthAnchor.constraint(equalToConstant: 200),
+            noInternetImageView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        noInternetImageView.isHidden = true
+    }
+    
+    private func showNoInternetImage() {
+        noInternetImageView.isHidden = false
+        tableViewStarships.isHidden = true
+    }
+
+    private func hideNoInternetImage() {
+        noInternetImageView.isHidden = true
+        tableViewStarships.isHidden = false
     }
 }
 
