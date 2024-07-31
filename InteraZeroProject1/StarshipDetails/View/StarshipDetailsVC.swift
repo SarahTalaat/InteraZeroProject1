@@ -15,18 +15,28 @@ class StarshipDetailsVC: UIViewController {
     @IBOutlet weak var passengersLabel: UILabel!
     @IBOutlet weak var crewLabel: UILabel!
     
+    @IBOutlet weak var modelTitleLabel: UILabel!
+    @IBOutlet weak var manufacturerTitleLabel: UILabel!
     
+    @IBOutlet weak var passengersTitleLabel: UILabel!
+    @IBOutlet weak var crewTitleLabel: UILabel!
+    @IBOutlet weak var lengthTitleLabel: UILabel!
+    @IBOutlet weak var costTitleLabel: UILabel!
     let starshipDetailsViewModel = DependencyProvider.starshipDetailsViewModel
     private var loadingIndicator: UIActivityIndicatorView!
-
+    var noInternetImageView: UIImageView!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         starshipDetailsViewModel.networkStatusChanged = { isReachable in
             DispatchQueue.main.async {
                 if !isReachable {
+                    self.showNoInternetImage()
                     self.showAlerts(title: "No Internet Connection", message: "Please check your WiFi connection.")
+                    self.stopLoading()
                 } else {
+                    self.hideNoInternetImage()
                     self.starshipDetailsViewModel.fetchStarshipsDetailsIfNeeded()
                 }
             }
@@ -38,6 +48,7 @@ class StarshipDetailsVC: UIViewController {
         super.viewDidLoad()
         
         setupLoadingIndicator()
+        setupNoInternetImageView()
 
         // Do any additional setup after loading the view.
         // Bind the ViewModel to the ViewController
@@ -79,6 +90,53 @@ class StarshipDetailsVC: UIViewController {
         view.isUserInteractionEnabled = true
     }
     
+    private func setupNoInternetImageView() {
+            noInternetImageView = UIImageView(image: UIImage(named: "noInternet"))
+            noInternetImageView.contentMode = .scaleAspectFit
+            noInternetImageView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(noInternetImageView)
+            
+            NSLayoutConstraint.activate([
+                noInternetImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                noInternetImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                noInternetImageView.widthAnchor.constraint(equalToConstant: 200),
+                noInternetImageView.heightAnchor.constraint(equalToConstant: 200)
+            ])
+            
+            noInternetImageView.isHidden = true
+        }
+        
+    private func showNoInternetImage() {
+        noInternetImageView.isHidden = false
+        modelLabel.isHidden = true
+        manufacturerLabel.isHidden = true
+        costLabel.isHidden = true
+        lengthLabel.isHidden = true
+        passengersLabel.isHidden = true
+        crewLabel.isHidden = true
+        modelTitleLabel.isHidden = true
+        manufacturerTitleLabel.isHidden = true
+        passengersTitleLabel.isHidden = true
+        crewTitleLabel.isHidden = true
+        lengthTitleLabel.isHidden = true
+        costTitleLabel.isHidden = true
+    }
+
+    private func hideNoInternetImage() {
+        noInternetImageView.isHidden = true
+        modelLabel.isHidden = false
+        manufacturerLabel.isHidden = false
+        costLabel.isHidden = false
+        lengthLabel.isHidden = false
+        passengersLabel.isHidden = false
+        crewLabel.isHidden = false
+        modelTitleLabel.isHidden = false
+        manufacturerTitleLabel.isHidden = false
+        passengersTitleLabel.isHidden = false
+        crewTitleLabel.isHidden = false
+        lengthTitleLabel.isHidden = false
+        costTitleLabel.isHidden = false
+    }
 
     /*
     // MARK: - Navigation
