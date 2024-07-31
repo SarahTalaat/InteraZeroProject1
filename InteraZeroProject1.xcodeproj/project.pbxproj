@@ -43,6 +43,8 @@
 		B6E9716E2C5955B700AED53F /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9716D2C5955B700AED53F /* CustomAnimator.swift */; };
 		B6E971702C5955DD00AED53F /* CustomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9716F2C5955DD00AED53F /* CustomTransitioningDelegate.swift */; };
 		B6E971722C598C4000AED53F /* HeartIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E971712C598C4000AED53F /* HeartIndicatorView.swift */; };
+		B6E971752C5A5A5700AED53F /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E971742C5A5A5700AED53F /* SplashScreenVC.swift */; };
+		B6E971772C5A5B6200AED53F /* StarshipAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = B6E971762C5A5B6200AED53F /* StarshipAnimation.json */; };
 		B6ED9DF62C567FD400CDAB30 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ED9DF52C567FD400CDAB30 /* NetworkService.swift */; };
 		B6ED9DF92C56817900CDAB30 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ED9DF82C56817900CDAB30 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -110,6 +112,8 @@
 		B6E9716D2C5955B700AED53F /* CustomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
 		B6E9716F2C5955DD00AED53F /* CustomTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransitioningDelegate.swift; sourceTree = "<group>"; };
 		B6E971712C598C4000AED53F /* HeartIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartIndicatorView.swift; sourceTree = "<group>"; };
+		B6E971742C5A5A5700AED53F /* SplashScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
+		B6E971762C5A5B6200AED53F /* StarshipAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StarshipAnimation.json; sourceTree = "<group>"; };
 		B6ED9DF52C567FD400CDAB30 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B6ED9DF82C56817900CDAB30 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F156E88F2B4A207055017E37 /* Pods_InteraZeroProject1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InteraZeroProject1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,6 +314,7 @@
 		B697AA942C56702300795D48 /* InteraZeroProject1 */ = {
 			isa = PBXGroup;
 			children = (
+				B6E971732C5A5A3500AED53F /* Onboarding */,
 				B664E11A2C57F8F40083201D /* Favourites */,
 				B66894B42C56C55D00C60476 /* SharedData */,
 				B6ED9DF72C56816800CDAB30 /* Utilities */,
@@ -401,6 +406,15 @@
 				B664E1102C57DDEC0083201D /* DatabaseService.swift */,
 			);
 			path = DatabaseService;
+			sourceTree = "<group>";
+		};
+		B6E971732C5A5A3500AED53F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B6E971762C5A5B6200AED53F /* StarshipAnimation.json */,
+				B6E971742C5A5A5700AED53F /* SplashScreenVC.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B6ED9DF22C567F9E00CDAB30 /* Starship */ = {
@@ -533,6 +547,7 @@
 				B697AAA52C56702500795D48 /* LaunchScreen.storyboard in Resources */,
 				B697AAA22C56702500795D48 /* Assets.xcassets in Resources */,
 				B66894A12C56943B00C60476 /* CustomTableViewCell.xib in Resources */,
+				B6E971772C5A5B6200AED53F /* StarshipAnimation.json in Resources */,
 				B697AA9D2C56702300795D48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,6 +676,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E971752C5A5A5700AED53F /* SplashScreenVC.swift in Sources */,
 				B66894A72C56AF0700C60476 /* CharactersViewModel.swift in Sources */,
 				B6E6B0A22C567BE800F73337 /* StarshipModel.swift in Sources */,
 				B664E1172C57EF250083201D /* LocalStarship.swift in Sources */,

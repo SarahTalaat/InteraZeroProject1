@@ -10,6 +10,7 @@ target 'InteraZeroProject1' do
   pod 'lottie-ios'
   pod 'Kingfisher'
   pod 'JGProgressHUD'
+  pod 'lottie-ios'
 
   # Pods for InteraZeroProject1
 
