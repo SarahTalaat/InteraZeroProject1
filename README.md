@@ -34,8 +34,8 @@ Project Structure:
 
 *View Controllers:
 ------------------
--CharactersVC: Displays a list of characters fetched from the SWAPI.
--StarshipsVC: Displays a list of starships fetched from the SWAPI.
+-CharactersVC: Displays a list of characters fetched from the SWAPI and search functionality.
+-StarshipsVC: Displays a list of starships fetched from the SWAPI and search functionality.
 -FavouriteVC: Manages and displays favorite characters and starships.
 -CharacterDetailsVC: Shows detailed information about a selected character.
 -StarshipDetailsVC: Shows detailed information about a selected starship.
