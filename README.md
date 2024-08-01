@@ -42,8 +42,8 @@ Project Structure:
 
 *View Models:
 -------------
--CharactersViewModel: Handles data fetching and binding for characters.
--StarshipViewModel: Handles data fetching and binding for starships.
+-CharactersViewModel: Handles data fetching (including pagination) and binding for characters.
+-StarshipViewModel: Handles data fetching (including pagination) and binding for starships.
 -FavouritesViewModel: Manages the list of favorite characters and starships, including retrieval and deletion from Core Data.
 -CharactersDetailsViewModel: Manages the detailed information and data binding for a selected character.
 -StarshipDetailsViewModel: Manages the detailed information and data binding for a selected starship.
